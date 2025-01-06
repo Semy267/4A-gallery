@@ -1,0 +1,8 @@
+.modal_wrap_content {
+  @apply flex flex-col gap-[16px] gap-0 overflow-hidden rounded-[12px] bg-neutral p-[16px] focus-visible:outline-none;
+  z-index: 99;
+}
+
+.modal_dialog_title {
+  @apply text-base font-semibold text-neutral-950 mb-5;
+}

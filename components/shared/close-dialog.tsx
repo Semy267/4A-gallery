@@ -1,13 +1,13 @@
 import { IoMdClose } from "react-icons/io";
-import useRootStore from "@/store";
+import store from "@/store";
 
 export default function CloseModal() {
-  const { closeModal }: any = useRootStore();
+  const { closeDialog } = store();
 
   return (
     <button
       type="button"
-      onClick={closeModal}
+      onClick={closeDialog}
       className="absolute right-4 top-3"
     >
       <IoMdClose size={20} />

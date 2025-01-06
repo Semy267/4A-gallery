@@ -5,7 +5,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-import styles from "@styles/component/c-dialog.module.css";
+import styles from "@/styles/component/c-dialog.module.css";
 import CloseDialog from "./close-dialog";
 
 const CModal = ({

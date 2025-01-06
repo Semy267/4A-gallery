@@ -1,5 +1,5 @@
 .modal_wrap_content {
-  @apply flex flex-col gap-[16px] gap-0 overflow-hidden rounded-[12px] bg-neutral p-[16px] focus-visible:outline-none;
+  @apply flex flex-col gap-[16px] gap-0 overflow-hidden rounded-[12px] bg-background p-[16px] focus-visible:outline-none;
   z-index: 99;
 }
 

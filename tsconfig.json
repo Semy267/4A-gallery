@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "typeRoots": ["node_modules/@types", "src/types"],
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,7 +19,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@shared/*": ["./components/shared/*"],
+      "@module/*": ["./components/module/*"],
+      "@ui/*": ["./components/ui/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

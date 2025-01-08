@@ -18,12 +18,42 @@ export default function CTable({
   styleTextHead,
   onClick,
   isLoading = false,
+  select,
+  setSelect,
 }: ICTable) {
+  const handleSelectAll = () => {
+    if (select && setSelect) {
+      if (select.length === column.length) {
+        setSelect([]);
+      } else {
+        const allIds = column.map((row) => row.id);
+        setSelect(allIds);
+      }
+    }
+  };
+
+  const handleRowSelect = (id: string) => {
+    if (select && setSelect) {
+      setSelect((prev: string[]) =>
+        prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
+      );
+    }
+  };
+
   return (
     <div className={className}>
       <Table>
         <TableHeader className={classNameHeader}>
           <TableRow>
+            {select && setSelect && (
+              <TableHead className="sticky left-0 bg-white z-10">
+                <input
+                  type="checkbox"
+                  checked={select.length === column.length && column.length > 0}
+                  onChange={handleSelectAll}
+                />
+              </TableHead>
+            )}
             {colConfig.map((col, id) => (
               <TableHead
                 key={id}
@@ -43,6 +73,15 @@ export default function CTable({
         <TableBody>
           {column?.map((row, rowIndex) => (
             <TableRow key={row.invoice}>
+              {select && setSelect && (
+                <TableCell className="sticky left-0 bg-white">
+                  <input
+                    type="checkbox"
+                    checked={select.includes(row.id)}
+                    onChange={() => handleRowSelect(row.id)}
+                  />
+                </TableCell>
+              )}
               {colConfig.map((col, colIndex) => (
                 <TableCell
                   onClick={() => onClick?.(row)}

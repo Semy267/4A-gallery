@@ -11,6 +11,8 @@ declare interface ICTable {
   onClick?: (item: any) => void;
   ref?: any;
   isLoading?: boolean;
+  select?: string[];
+  setSelect?: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 declare type CImage = {

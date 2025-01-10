@@ -3,23 +3,20 @@ echo 'Styling, testing and building your project before committing'
 # Check Prettier standards
 npm run check-format ||
 (
-    echo 'Your styling looks disgusting. 
-            Prettier Check Failed. Run npm run format, add changes using git add and try commit again.';
+    echo 'Your styling looks disgusting. Prettier Check Failed. Run npm run format, add changes using git add and try commit again.';
     false;
 )
 
 # Check ESLint Standards
 npm run check-lint ||
 (
-        echo 'Get that weak shit out of here! 
-                ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
+        echo 'Get that weak shit out of here! ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
         false; 
 )
 
 npm run check-types ||
 (
-    echo 'Failed Type check.
-            Are you seriously trying to write that? Make the changes required above.'
+    echo 'Failed Type check. Are you seriously trying to write that? Make the changes required above.'
     false;
 )
 
@@ -27,8 +24,7 @@ echo 'Code looks good to me... Trying to build now. '
 
 npm run build ||
 (
-    echo '❌Your build failed ❌
-    '
+    echo '❌Your build failed ❌'
     false;
 )
 

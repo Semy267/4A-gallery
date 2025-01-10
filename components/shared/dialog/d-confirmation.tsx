@@ -2,7 +2,7 @@ import useStore from "@/store";
 import CButton from "../c-button";
 
 export default function DConfirmation() {
-  const { dialog,closeDialog } = useStore();
+  const { dialog, closeDialog } = useStore();
   const onConfirmation = dialog?.data?.onConfirmation;
   const text = dialog?.data?.text;
 

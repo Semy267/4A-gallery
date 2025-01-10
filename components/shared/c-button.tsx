@@ -14,12 +14,12 @@ export default function CButton({
   className?: string;
   onClick?: () => void;
   variant?:
-  | "default"
-  | "secondary"
-  | "destructive"
-  | "outline"
-  | "ghost"
-  | "link";
+    | "default"
+    | "secondary"
+    | "destructive"
+    | "outline"
+    | "ghost"
+    | "link";
   size?: "default" | "sm" | "lg" | "icon";
 }) {
   return (

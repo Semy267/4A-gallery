@@ -34,8 +34,8 @@ declare interface IModal {
   footerTitle?: string;
   data?: any;
   modalName: string;
-  height: string;
-  width: string;
+  height?: string;
+  width?: string;
   paddingContent?: boolean;
   headerTitleClassName?: string;
   showHeader?: boolean;

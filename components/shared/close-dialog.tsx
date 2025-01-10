@@ -8,7 +8,7 @@ export default function CloseModal() {
     <button
       type="button"
       onClick={closeDialog}
-      className="absolute right-4 top-3"
+      className="absolute right-4 top-3 focus:outline-none focus:ring-0"
     >
       <IoMdClose size={20} />
     </button>

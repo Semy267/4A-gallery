@@ -15,5 +15,23 @@ body {
 @layer base {
   :root {
     --radius: 0.5rem;
+    --height-navbar: 3.5rem;
+
+    --primary: #123524;
+    --secondary: #118b50;
+    --foreground: #212121;
+    --background: #f2f2f2;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold;
+  }
+  h2 {
+    @apply text-xl;
   }
 }

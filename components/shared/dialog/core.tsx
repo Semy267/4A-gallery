@@ -2,6 +2,7 @@
 
 import store from "@/store";
 import CDialog from "../c-dialog";
+import DConfirmation from "./d-confirmation";
 
 export default function CoreDialog() {
   const { dialog: modal, closeDialog: closeModal } = store();
@@ -16,8 +17,8 @@ export default function CoreDialog() {
 
   const ModalContent = () => {
     switch (modalName) {
-      case "SAME_ITEM":
-        return <div></div>;
+      case "CONFRIMATION":
+        return <DConfirmation />;
     }
   };
   return open ? (

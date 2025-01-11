@@ -87,3 +87,16 @@ declare interface IRootStore {
   setOpenDrawer: (drawer: IDrawer) => void;
   closeDrawer: () => void;
 }
+
+declare interface IDynamicList {
+  isLoading: boolean;
+  item: any[];
+  classNameLoading?: string;
+  classNameEmpty?: string;
+  className?: string;
+  render: (item: any, id: number) => React.ReactNode;
+  id?: string;
+  titleEmpty?: string;
+  descriptionEmpty?: string;
+  length?: number;
+}

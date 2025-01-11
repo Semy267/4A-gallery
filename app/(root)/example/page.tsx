@@ -1,5 +1,6 @@
 "use client";
 import CButton from "@/components/shared/c-button";
+import DynamicList from "@/components/shared/dynamic-list";
 import useStore from "@/store";
 
 export default function Page() {
@@ -22,6 +23,11 @@ export default function Page() {
         title="Confirmation"
         onClick={handleConfirmation}
         variant="secondary"
+      />
+      <DynamicList
+        isLoading={false}
+        item={["Item 1", "Item 2", "Item 3"]}
+        render={(item) => <div>{item}</div>}
       />
     </div>
   );

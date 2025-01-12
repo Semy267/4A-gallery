@@ -3,8 +3,20 @@ import CButton from "@/components/shared/c-button";
 import DynamicList from "@/components/shared/dynamic-list";
 import useStore from "@/store";
 
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { ProfileSchema } from "@/lib/validation";
+import CInput from "@/components/shared/c-input";
+import { Form } from "@/components/ui/form";
+import { IoIosAdd } from "react-icons/io";
+import { Default } from "@/lib/image";
+import { useState } from "react";
+import CInputV2 from "@/components/shared/c-input-v2";
+
 export default function Page() {
   const { setOpenDialog } = useStore();
+  const [search, setSearch] = useState("");
 
   const handleConfirmation = () => {
     setOpenDialog({
@@ -17,6 +29,21 @@ export default function Page() {
       },
     });
   };
+
+  const form = useForm<z.infer<typeof ProfileSchema>>({
+    resolver: zodResolver(ProfileSchema),
+    defaultValues: {
+      name: "Jhon",
+    },
+  });
+
+  const nameValue = form.watch("name");
+  console.log(nameValue);
+
+  const onSubmit = async (values: z.infer<typeof ProfileSchema>) => {
+    console.log(values);
+  };
+
   return (
     <div className="p-2">
       <CButton
@@ -29,6 +56,36 @@ export default function Page() {
         item={["Item 1", "Item 2", "Item 3"]}
         render={(item) => <div>{item}</div>}
       />
+      <div className="flex items-start flex-col gap-4 max-w-xl">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex flex-col w-full"
+          >
+            <CInput
+              iconSvg={<IoIosAdd />}
+              label="Name"
+              placeholder="Jhon Doe"
+              form={form}
+              name="name"
+            />
+            <CInput
+              iconImg={Default}
+              label="Username"
+              placeholder="johndoe24"
+              form={form}
+              name="username"
+            />
+            <CButton title="Submit" type="submit" className="mt-5" />
+          </form>
+        </Form>
+        <CInputV2
+          placeholder="Search..."
+          value={search}
+          name="search"
+          onChange={(e: any) => setSearch(e.target.value)}
+        />
+      </div>
     </div>
   );
 }

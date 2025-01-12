@@ -15,6 +15,24 @@ declare interface ICTable {
   setSelect?: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
+declare interface CInput {
+  name: string;
+  form?: any;
+  label?: string;
+  placeholder: string;
+  ref?: React.RefObject<HTMLInputElement>;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+  className?: string;
+  classNameParent?: string;
+  type?: string;
+  checked?: boolean;
+  iconSvg?: any;
+  iconImg?: any;
+  iconSize?: number;
+}
+
 declare type CImage = {
   src: any;
   alt: string;

@@ -8,11 +8,13 @@ export default function CButton({
   size,
   className,
   onClick,
+  type,
 }: {
   title: string;
   icon?: string;
   className?: string;
   onClick?: () => void;
+  type?: "button" | "submit" | "reset";
   variant?:
     | "default"
     | "secondary"
@@ -24,6 +26,7 @@ export default function CButton({
 }) {
   return (
     <Button
+      type={type}
       size={size}
       onClick={onClick}
       variant={variant}

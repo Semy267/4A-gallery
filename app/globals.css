@@ -34,4 +34,7 @@ body {
   h2 {
     @apply text-xl;
   }
+  button {
+    @apply focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-none;
+  }
 }

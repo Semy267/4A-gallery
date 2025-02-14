@@ -1,3 +1,21 @@
+type CButtonProps =
+  | { title: string; children?: never } // Requires title if children is not provided
+  | { title?: string; children: React.ReactNode }; // Requires children if title is not provided
+declare interface CButton extends CButtonProps {
+  icon?: string;
+  className?: string;
+  onClick?: () => void;
+  variant?:
+    | "default"
+    | "secondary"
+    | "destructive"
+    | "outline"
+    | "ghost"
+    | "link";
+  size?: "default" | "sm" | "lg" | "icon";
+  font?: "nrl" | "mdm" | "sbd" | "bd";
+}
+
 declare interface ICTable {
   column: any[];
   colConfig: {

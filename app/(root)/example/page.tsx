@@ -1,5 +1,5 @@
 "use client";
-import CButton from "@/components/shared/c-button";
+import CButton from "@/components/shared/custome/c-button";
 import useStore from "@/store";
 
 export default function Page() {

@@ -1,5 +1,5 @@
 import store from "@/store";
-import CDrawer from "../c-drawer";
+import CDrawer from "@/shared/custome/c-drawer";
 
 export default function CoreDrawer() {
   const { drawer, closeDrawer } = store();

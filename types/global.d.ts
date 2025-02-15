@@ -1,7 +1,4 @@
-type CButtonProps =
-  | { title: string; children?: never } // Requires title if children is not provided
-  | { title?: string; children: React.ReactNode }; // Requires children if title is not provided
-declare interface CButton extends CButtonProps {
+declare interface CButton {
   icon?: string;
   className?: string;
   onClick?: () => void;

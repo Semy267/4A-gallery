@@ -1,7 +1,7 @@
 "use client";
 
 import store from "@/store";
-import CDialog from "../c-dialog";
+import CDialog from "@/shared/custome/c-dialog";
 import DConfirmation from "./d-confirmation";
 
 export default function CoreDialog() {

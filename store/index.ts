@@ -22,7 +22,7 @@ const initialDialog = {
   paddingContent: true,
 };
 
-const useStore = create<IRootStore>((set) => ({
+const store = create<IRootStore>((set) => ({
   loading: false,
   setLoading: () => set({ loading: true }),
   clearLoading: () => set({ loading: false }),
@@ -35,4 +35,4 @@ const useStore = create<IRootStore>((set) => ({
   closeDrawer: () => set({ drawer: initialDrawer }),
 }));
 
-export default useStore;
+export default store;

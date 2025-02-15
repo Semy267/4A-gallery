@@ -1,9 +1,9 @@
 "use client";
 import CButton from "@/components/shared/custome/c-button";
-import useStore from "@/store";
+import store from "@/store";
 
 export default function Page() {
-  const { setOpenDialog } = useStore();
+  const { setOpenDialog } = store();
 
   const handleConfirmation = () => {
     setOpenDialog({

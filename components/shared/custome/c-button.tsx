@@ -1,5 +1,9 @@
 import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
+import { Button } from "@/ui/button";
+
+type CButtonProps =
+  | { title: string; children?: never } // Requires title if children is not provided
+  | { title?: string; children: React.ReactNode }; // Requires children if title is not provided
 
 export default function CButton({
   title,
@@ -10,7 +14,7 @@ export default function CButton({
   onClick,
   font,
   children,
-}: CButton) {
+}: CButton & CButtonProps) {
   return (
     <Button
       font={font}

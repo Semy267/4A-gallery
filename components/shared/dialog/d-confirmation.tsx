@@ -1,8 +1,8 @@
-import useStore from "@/store";
-import CButton from "../c-button";
+import store from "@/store";
+import CButton from "@/shared/custome/c-button";
 
 export default function DConfirmation() {
-  const { dialog, closeDialog } = useStore();
+  const { dialog, closeDialog } = store();
   const onConfirmation = dialog?.data?.onConfirmation;
   const text = dialog?.data?.text;
 

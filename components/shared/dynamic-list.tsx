@@ -29,7 +29,7 @@ export default function DynamicList({
             className={cn("w-full min-h-60", classNameLoading)}
           />
         )}
-        {Children.toArray(item?.map((item: any, id) => render(item, id)))}
+        {Children.toArray(item?.map((item, id) => render(item, id)))}
       </div>
       {!isLoading && item?.length == 0 && (
         <div>

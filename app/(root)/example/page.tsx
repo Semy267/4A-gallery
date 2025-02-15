@@ -55,7 +55,7 @@ export default function Page() {
       <DynamicList
         isLoading={false}
         item={["Item 1", "Item 2", "Item 3"]}
-        render={(item) => <div>{item}</div>}
+        render={(item) => <div key={item}>{item}</div>}
       />
       <div className="flex items-start flex-col gap-4 max-w-xl">
         <Form {...form}>
@@ -77,7 +77,7 @@ export default function Page() {
               form={form}
               name="username"
             />
-            <CButton title="Submit" className="mt-5" />
+            <CButton title="Submit" className="mt-5" font="bd" size="sm" />
           </form>
         </Form>
         <CInputV2

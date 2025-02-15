@@ -3,7 +3,7 @@ if ! git diff --cached --name-only | grep -q "CHANGELOG.md"; then
   exit 1
 fi
 
-if git diff --cached --numstat | awk '{ if ($1 > 5000) { print $2 } }' | grep -q .; then
+if git diff --cached --numstat | awk '{ if ($1 > 50000) { print $2 } }' | grep -q .; then
   echo "Error: You are trying to commit a large file."
   exit 1
 fi

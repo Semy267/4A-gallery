@@ -28,3 +28,12 @@
 ### Fix
 
 - conflict within dev branch
+
+### Added
+
+- move to pnpm
+
+### Fix
+
+- fixing img path
+- fixing error types and keys

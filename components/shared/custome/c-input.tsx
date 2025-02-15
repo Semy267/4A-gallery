@@ -35,7 +35,7 @@ export default function CInput({
                     {iconImg && (
                       <Image
                         src={iconImg}
-                        alt="profile icon"
+                        alt="icon"
                         width={iconSize || 20}
                         height={iconSize || 20}
                         className="flex-shrink-0"

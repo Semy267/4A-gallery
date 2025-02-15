@@ -133,3 +133,9 @@ declare interface IDynamicList {
   descriptionEmpty?: string;
   length?: number;
 }
+
+declare interface ICarousel {
+  arrowPosition?: "bottom-right" | "top-right" | "between";
+  showArrow?: boolean;
+  children: React.ReactNode;
+}

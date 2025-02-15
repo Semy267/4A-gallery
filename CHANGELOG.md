@@ -37,3 +37,7 @@
 
 - fixing img path
 - fixing error types and keys
+
+### Added
+
+- custome carousel (not completed yet need adjustment, but can be used)

@@ -13,6 +13,7 @@ import { Default } from "@/lib/image";
 import { useState } from "react";
 import CInputV2 from "@/shared/custome/c-input-v2";
 import DynamicList from "@/components/shared/dynamic-list";
+import DemoCarousel from "@/components/module/example/demo-carousel";
 
 export default function Page() {
   const { setOpenDrawer } = store();
@@ -46,7 +47,7 @@ export default function Page() {
   };
 
   return (
-    <div className="p-2">
+    <div className="p-2 container mx-auto w-full">
       <CButton
         title="Confirmation"
         onClick={handleConfirmation}
@@ -87,6 +88,7 @@ export default function Page() {
           onChange={(e: any) => setSearch(e.target.value)}
         />
       </div>
+      <DemoCarousel />
     </div>
   );
 }

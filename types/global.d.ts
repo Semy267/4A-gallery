@@ -30,6 +30,24 @@ declare interface ICTable {
   setSelect?: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
+declare interface CInput {
+  name: string;
+  form?: any;
+  label?: string;
+  placeholder: string;
+  ref?: React.RefObject<HTMLInputElement>;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+  className?: string;
+  classNameParent?: string;
+  type?: string;
+  checked?: boolean;
+  iconSvg?: any;
+  iconImg?: any;
+  iconSize?: number;
+}
+
 declare type CImage = {
   src: any;
   alt: string;
@@ -101,4 +119,17 @@ declare interface IRootStore {
   drawer: IDrawer | null;
   setOpenDrawer: (drawer: IDrawer) => void;
   closeDrawer: () => void;
+}
+
+declare interface IDynamicList {
+  isLoading: boolean;
+  item: any[];
+  classNameLoading?: string;
+  classNameEmpty?: string;
+  className?: string;
+  render: (item: any, id: number) => React.ReactNode;
+  id?: string;
+  titleEmpty?: string;
+  descriptionEmpty?: string;
+  length?: number;
 }

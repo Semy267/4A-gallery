@@ -24,3 +24,7 @@
 - update lib to work with husky
 - update from next 14 to 15
 - update from modalName and drawerName to id
+
+### Fix
+
+- conflict within dev branch

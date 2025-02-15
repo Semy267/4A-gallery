@@ -1,18 +1,19 @@
 import store from "@/store";
 import CDrawer from "@/shared/custome/c-drawer";
+import DConfirmation from "../dialog/d-confirmation";
 
 export default function CoreDrawer() {
   const { drawer, closeDrawer } = store();
   const open = drawer?.open;
-  const drawerName = drawer?.drawerName;
+  const id = drawer?.id;
   const paddingContent = drawer?.paddingContent;
   const headerTitle = drawer?.headerTitle;
   const height = drawer?.height || "";
 
   const DrawerContent = () => {
-    switch (drawerName) {
-      case "SAME_ITEM":
-        return <div></div>;
+    switch (id) {
+      case "CONFRIMATION":
+        return <DConfirmation />;
     }
   };
   return open ? (

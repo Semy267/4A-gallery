@@ -3,12 +3,13 @@ import CButton from "@/components/shared/custome/c-button";
 import store from "@/store";
 
 export default function Page() {
-  const { setOpenDialog } = store();
+  const { setOpenDrawer } = store();
 
   const handleConfirmation = () => {
-    setOpenDialog({
-      modalName: "CONFRIMATION",
-      width: "w-[300px]",
+    setOpenDrawer({
+      id: "CONFRIMATION",
+      // width: "w-[300px]",
+      height: "h-[200px]",
       headerTitle: "Confirmation",
       data: {
         onConfirmation: () => console.log("confirm"),

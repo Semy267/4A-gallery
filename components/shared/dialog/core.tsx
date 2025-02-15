@@ -7,7 +7,7 @@ import DConfirmation from "./d-confirmation";
 export default function CoreDialog() {
   const { dialog: modal, closeDialog: closeModal } = store();
   const open = modal?.open;
-  const modalName = modal?.modalName;
+  const id = modal?.id;
   const paddingContent = modal?.paddingContent;
   const headerTitle = modal?.headerTitle;
   const showHeader = modal?.showHeader;
@@ -16,7 +16,7 @@ export default function CoreDialog() {
   const headerClassName = modal?.headerClassName || "";
 
   const ModalContent = () => {
-    switch (modalName) {
+    switch (id) {
       case "CONFRIMATION":
         return <DConfirmation />;
     }

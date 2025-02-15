@@ -48,7 +48,7 @@ declare interface IModal {
   headerClassName?: string;
   footerTitle?: string;
   data?: any;
-  modalName: string;
+  id: string;
   height?: string;
   width?: string;
   paddingContent?: boolean;
@@ -76,7 +76,7 @@ declare interface CModal {
 declare interface IDrawer {
   open?: boolean;
   headerTitle?: string;
-  drawerName: string;
+  id: string;
   data?: null | any;
   height: string;
   paddingContent?: boolean;

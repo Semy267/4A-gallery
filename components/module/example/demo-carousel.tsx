@@ -8,7 +8,7 @@ export default function DemoCarousel() {
   const [current, setCurrent] = useState(0);
   return (
     <CCarousel
-      arrowPosition="bottom-right"
+      arrowPosition="inside-right"
       showDots
       current={current}
       setCurrent={setCurrent}

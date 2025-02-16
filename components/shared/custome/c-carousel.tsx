@@ -8,32 +8,40 @@ import {
   CarouselPrevious,
 } from "@/ui/carousel";
 import { cn } from "@/lib/utils";
+import { cva } from "class-variance-authority";
 
-type CCarouselWithDots = ICarousel & {
-  showDots: true;
-  current: number;
-  setCurrent: React.Dispatch<React.SetStateAction<number>>;
-};
-
-type CCarouselWithoutDots = ICarousel & {
-  showDots?: false;
-  current?: never;
-  setCurrent?: never;
-};
-
-type CCarousel = CCarouselWithDots | CCarouselWithoutDots;
+const dotVariants = cva(
+  "absolute py-2 text-center text-sm text-muted-foreground",
+  {
+    variants: {
+      position: {
+        outside: "",
+        inside: "bottom-10",
+      },
+      align: {
+        start: "left-0",
+        center: "left-1/2 -translate-x-1/2",
+        end: "right-0",
+      },
+    },
+  },
+);
 
 export default function CCarousel({
-  arrowPosition = "between",
+  arrowPosition = "inside",
   showArrow = true,
   showDots = false,
+  dotPosition = "outside",
+  dotAlign = "center",
   children,
   current = 0,
   setCurrent = () => {},
 }: CCarousel) {
-  const isBottomRight = arrowPosition === "bottom-right";
-  const isTopRight = arrowPosition === "top-right";
-  const isBetween = arrowPosition === "between";
+  const isOutBottom = arrowPosition === "outside-bottom";
+  const isOutTop = arrowPosition === "outside-top";
+  const isInside = arrowPosition === "inside";
+  const isInsideRight = arrowPosition === "inside-right";
+  const isInsideLeft = arrowPosition === "inside-left";
 
   const [api, setApi] = React.useState<CarouselApi>();
   const [count, setCount] = React.useState(0);
@@ -58,13 +66,18 @@ export default function CCarousel({
         align: "start",
       }}
       className={cn("w-full", {
-        "pt-10": isTopRight && showArrow,
-        "pb-10": isBottomRight && showArrow,
+        "pt-10": isOutTop && showArrow,
+        "pb-10": isOutBottom && showArrow,
       })}
     >
       <CarouselContent>{children}</CarouselContent>
       {showDots && (
-        <div className="py-2 text-center text-sm text-muted-foreground">
+        <div
+          className={dotVariants({
+            position: dotPosition,
+            align: dotAlign,
+          })}
+        >
           Slide {current} of {count}
         </div>
       )}
@@ -73,16 +86,20 @@ export default function CCarousel({
         <>
           <CarouselPrevious
             className={cn({
-              "bottom-0 right-12": isBottomRight,
-              "top-0 right-12": isTopRight,
-              "top-1/2 -translate-y-1/2 left-0": isBetween,
+              "bottom-0 right-12": isOutBottom,
+              "top-0 right-12": isOutTop,
+              "left-0 top-1/2 -translate-y-1/2": isInside,
+              "left-2 bottom-3": isInsideLeft,
+              "right-12 bottom-3": isInsideRight,
             })}
           />
           <CarouselNext
             className={cn({
-              "bottom-0 right-0": isBottomRight,
-              "top-0 right-0": isTopRight,
-              "top-1/2 -translate-y-1/2 right-0": isBetween,
+              "bottom-0 right-0": isOutBottom,
+              "top-0 right-0 ": isOutTop,
+              "right-0 top-1/2 -translate-y-1/2": isInside,
+              "left-12 bottom-3": isInsideLeft,
+              "right-2 bottom-3": isInsideRight,
             })}
           />
         </>

@@ -135,7 +135,28 @@ declare interface IDynamicList {
 }
 
 declare interface ICarousel {
-  arrowPosition?: "bottom-right" | "top-right" | "between";
+  arrowPosition?:
+    | "inside"
+    | "inside-right"
+    | "inside-left"
+    | "outside-top"
+    | "outside-bottom";
+  dotPosition?: "inside" | "outside";
+  dotAlign?: "start" | "center" | "end";
   showArrow?: boolean;
   children: React.ReactNode;
 }
+
+declare type CCarouselWithDots = ICarousel & {
+  showDots: true;
+  current: number;
+  setCurrent: React.Dispatch<React.SetStateAction<number>>;
+};
+
+declare type CCarouselWithoutDots = ICarousel & {
+  showDots?: false;
+  current?: never;
+  setCurrent?: never;
+};
+
+declare type CCarousel = CCarouselWithDots | CCarouselWithoutDots;

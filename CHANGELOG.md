@@ -41,3 +41,11 @@
 ### Added
 
 - custome carousel (not completed yet need adjustment, but can be used)
+
+### Addedd
+
+- adding more props for flexiblity custome carousel
+
+### Changed
+
+- move types custome carousel to globald.d.ts

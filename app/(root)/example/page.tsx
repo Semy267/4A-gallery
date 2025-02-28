@@ -10,10 +10,11 @@ import CInput from "@/shared/custome/c-input";
 import { Form } from "@/components/ui/form";
 import { IoIosAdd } from "react-icons/io";
 import { Default } from "@/lib/image";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import CInputV2 from "@/shared/custome/c-input-v2";
 import DynamicList from "@/components/shared/dynamic-list";
 import DemoCarousel from "@/components/module/example/demo-carousel";
+import Pagination from "@/components/shared/pagination";
 
 export default function Page() {
   const { setOpenDrawer } = store();
@@ -89,6 +90,9 @@ export default function Page() {
         />
       </div>
       <DemoCarousel />
+      <Suspense>
+        <Pagination totalPages={20} />
+      </Suspense>
     </div>
   );
 }

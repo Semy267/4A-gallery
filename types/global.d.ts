@@ -2,6 +2,7 @@ declare interface CButton {
   icon?: string;
   className?: string;
   onClick?: () => void;
+  disable?: boolean;
   variant?:
     | "default"
     | "secondary"
@@ -9,7 +10,7 @@ declare interface CButton {
     | "outline"
     | "ghost"
     | "link";
-  size?: "default" | "sm" | "lg" | "icon";
+  size?: "default" | "sm" | "lg" | "icon" | "none";
   font?: "nrl" | "mdm" | "sbd" | "bd";
 }
 

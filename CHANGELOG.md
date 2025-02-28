@@ -49,3 +49,13 @@
 ### Changed
 
 - move types custome carousel to globald.d.ts
+
+### Changed
+
+- (Refactor) remove some todo in readme
+- (Refactor) update btn (size none and)
+
+### Added
+
+- pagination
+- style pagination

@@ -1,14 +1,9 @@
 ### TODO
 
-- update to next latest
-- move to pnpm
-- CSelect
-- CCarousel
-  TODO
-
-- Form
-- Input
-- Select
-- Dropdown
-- Notify
-- Error page
+- pagination
+- c-select
+- c-multi-select
+- c-popover
+- c-dropdown
+- notify
+- error page

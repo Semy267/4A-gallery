@@ -97,10 +97,10 @@ const BaseSelect = ({
         </Label>
       )}
       <Select value={form} onValueChange={onChange}>
-        <SelectTrigger className={cn(className, "bg-background")}>
+        <SelectTrigger className={cn(className)}>
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
-        <SelectContent className="bg-background">
+        <SelectContent>
           <SelectGroup>
             {options.map((option) => (
               <SelectItem

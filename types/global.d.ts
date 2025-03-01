@@ -33,6 +33,9 @@ declare interface ICTable {
 }
 
 declare interface CInput {
+  field?: any;
+  isError?: string;
+  isForm?: boolean;
   name: string;
   form?: any;
   label?: string;

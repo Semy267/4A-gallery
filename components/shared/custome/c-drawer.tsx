@@ -5,6 +5,7 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { cn } from "@/lib/utils";
+import store from "@/store";
 
 const CDrawer = ({
   open,
@@ -14,20 +15,20 @@ const CDrawer = ({
   height,
   paddingContent = true,
 }: CDrawer) => {
+  const { closeDrawer } = store();
   return (
     <Drawer
       open={open}
       onOpenChange={(isOpen) => (!isOpen ? setIsOpen() : null)}
     >
       <DrawerContent
-        className={cn(
-          "bg-neutral overflow-hidden !rounded-t-md",
-          height || "h-[300px]",
-        )}
+        onEscapeKeyDown={closeDrawer}
+        onInteractOutside={closeDrawer}
+        className={cn("overflow-hidden !rounded-t-md", height || "h-[300px]")}
       >
         {" "}
-        <DrawerHeader className="!p-0">
-          <DrawerTitle className="flex pb-5 px-4">{headerTitle}</DrawerTitle>
+        <DrawerHeader>
+          <DrawerTitle>{headerTitle}</DrawerTitle>
         </DrawerHeader>
         <div className={cn("p-4", !paddingContent && "!p-0")}>{children}</div>
       </DrawerContent>

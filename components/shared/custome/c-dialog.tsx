@@ -22,18 +22,13 @@ const CModal = ({
   return (
     <Dialog open={open} onOpenChange={setIsOpen}>
       <DialogContent
-        className={cn(
-          styles.modal_wrap_content,
-          height,
-          width,
-          !paddingContent && "!p-0",
-        )}
+        className={cn(styles.content, height, width, !paddingContent && "!p-0")}
       >
         {showHeader && (
           <DialogHeader>
             <DialogTitle
               className={cn(
-                styles.modal_dialog_title,
+                styles.title,
                 headerClassName,
                 !paddingContent && "!p-5",
               )}

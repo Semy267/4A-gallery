@@ -28,3 +28,7 @@ export const ProfileSchema = z.object({
     .max(50, nameRegex.msg.max)
     .regex(usernameRegex.regex, usernameRegex.msg),
 });
+
+export const SelectScheme = z.object({
+  options: z.string(),
+});

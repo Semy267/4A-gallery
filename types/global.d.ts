@@ -1,4 +1,5 @@
-declare interface CButton {
+declare interface CButton
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: string;
   className?: string;
   onClick?: () => void;
@@ -161,3 +162,14 @@ declare type CCarouselWithoutDots = ICarousel & {
 };
 
 declare type CCarousel = CCarouselWithDots | CCarouselWithoutDots;
+
+declare interface CSelect {
+  form: any;
+  name: string;
+  options: IOpt[];
+  label?: string;
+  placeholder?: string;
+  required?: boolean;
+  className?: string;
+  classNameParent?: string;
+}

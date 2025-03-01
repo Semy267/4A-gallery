@@ -15,6 +15,7 @@ import CInputV2 from "@/shared/custome/c-input-v2";
 import DynamicList from "@/components/shared/dynamic-list";
 import DemoCarousel from "@/components/module/example/demo-carousel";
 import Pagination from "@/components/shared/pagination";
+import DemoSelect from "@/components/module/example/demo-select";
 
 export default function Page() {
   const { setOpenDrawer } = store();
@@ -93,6 +94,7 @@ export default function Page() {
       <Suspense>
         <Pagination totalPages={20} />
       </Suspense>
+      <DemoSelect />
     </div>
   );
 }

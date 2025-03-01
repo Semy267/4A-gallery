@@ -59,3 +59,7 @@
 
 - pagination
 - style pagination
+
+### Added
+
+- custome select

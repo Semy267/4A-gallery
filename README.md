@@ -1,6 +1,5 @@
 ### TODO
 
-- pagination
 - c-select
 - c-multi-select
 - c-popover

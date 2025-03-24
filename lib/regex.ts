@@ -18,7 +18,7 @@ export const phoneNumberRegex = {
 
 export const usernameRegex = {
   regex: /^[a-z0-9\_\.]+$/,
-  msg: "Only Numbers and Letters",
+  msg: "Only Numbers, Letters, _ and . allowed",
 };
 
 export const nameRegex = {

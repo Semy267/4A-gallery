@@ -69,3 +69,13 @@
 - (Refactor) make custome input only 1
 - (Refactor) change color input, select, drawer and dialog
 - (Refactor) adding Esc and outside click to close drawer
+
+### Added
+
+- tanstack/form
+
+### Change
+
+- (Refactor) change validation using tanstack/form over react-hook-form
+- (Refactor) update demo-validation
+- (Refactor) make dialog and drawer in same file (no need to import twice, only dialog)

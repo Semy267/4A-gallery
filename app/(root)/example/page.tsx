@@ -43,6 +43,7 @@ export default function Page() {
         <Pagination totalPages={20} />
       </Suspense>
       <DemoSelect />
+      <DemoInput />
     </div>
   );
 }

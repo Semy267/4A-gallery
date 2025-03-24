@@ -1,56 +1,67 @@
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { ProfileSchema } from "@/lib/validation";
-import CInput from "@/shared/custome/c-input";
-import { Form } from "@/components/ui/form";
-import { IoIosAdd } from "react-icons/io";
-import { Default } from "@/lib/image";
+"use client";
 import CButton from "@/components/shared/custome/c-button";
-import { useState } from "react";
+import CInput from "@/components/shared/custome/c-input";
+import FieldSelect from "@/components/shared/field-select";
+import { OPT_DUMMY } from "@/lib/constants";
+import { UserSchema } from "@/lib/validation";
+import { useForm } from "@tanstack/react-form";
 
 export default function DemoInput() {
-  const [search, setSearch] = useState("");
-  const form = useForm<z.infer<typeof ProfileSchema>>({
-    resolver: zodResolver(ProfileSchema),
+  const form = useForm({
     defaultValues: {
-      name: "Jhon",
+      name: "",
+      username: "",
+      email: "",
+      password: "",
+      hobby: "",
+    },
+    validators: {
+      onChange: UserSchema,
+    },
+    onSubmit: ({ value }) => {
+      alert(JSON.stringify(value, null, 2));
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof ProfileSchema>) => {
-    console.log(values);
+  const handleChangeAsync = async ({ value }: { value: string }) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    return (
+      value.includes("errors") && {
+        message: 'No "errors" allowed in username',
+      }
+    );
   };
+
   return (
-    <div className="flex items-start flex-col gap-4 max-w-xl">
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col w-full"
-        >
-          <CInput
-            iconSvg={<IoIosAdd />}
-            label="Name"
-            placeholder="Jhon Doe"
-            form={form}
-            name="name"
-          />
-          <CInput
-            iconImg={Default}
-            label="Username"
-            placeholder="johndoe24"
-            form={form}
-            name="username"
-          />
-          <CButton title="Submit" className="mt-5" font="bd" />
-        </form>
-      </Form>
-      <CInput
-        placeholder="Search..."
-        value={search}
-        name="search"
-        onChange={(e: any) => setSearch(e.target.value)}
-      />
+    <div className="size-full max-w-2xl mx-auto flex items-center justify-center ">
+      <form
+        className="size-full"
+        onSubmit={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          form.handleSubmit();
+        }}
+      >
+        <CInput name="name" placeholder="Jhon Doe" form={form} />
+        <CInput
+          validators={{
+            onChangeAsyncDebounceMs: 500,
+            onChangeAsync: handleChangeAsync,
+          }}
+          name="username"
+          placeholder="jhon_doe"
+          form={form}
+        />
+        <CInput name="email" placeholder="example@gmail.com" form={form} />
+        <CInput name="password" placeholder="password" form={form} />
+        <FieldSelect
+          name="hobby"
+          placeholder="Hobby"
+          options={OPT_DUMMY}
+          form={form}
+        />
+        <CButton title="Submit" type="submit" />
+      </form>
     </div>
   );
 }

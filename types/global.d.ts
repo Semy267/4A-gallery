@@ -32,22 +32,15 @@ declare interface ICTable {
   setSelect?: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-declare interface CInput {
-  field?: any;
+declare interface IFieldInput
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   isError?: string;
-  isForm?: boolean;
   name: string;
   form?: any;
+  field?: any;
   label?: string;
-  placeholder: string;
-  ref?: React.RefObject<HTMLInputElement>;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  required?: boolean;
   className?: string;
   classNameParent?: string;
-  type?: string;
-  checked?: boolean;
   iconSvg?: any;
   iconImg?: any;
   iconSize?: number;

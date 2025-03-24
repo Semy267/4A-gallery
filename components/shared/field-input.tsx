@@ -1,23 +1,19 @@
-import Image from "next/image";
-import { Input } from "@/ui/input";
-import { Label } from "@/ui/label";
 import { cn } from "@/lib/utils";
+import { Label } from "../ui/label";
+import Image from "next/image";
+import { Input } from "../ui/input";
 
-export default function CInputV2({
-  placeholder,
+export default function FieldInput({
   className,
   classNameParent,
-  type = "text",
-  checked,
-  required = false,
   label,
-  name,
-  value,
-  onChange,
   iconSvg,
   iconImg,
   iconSize,
-}: CInput) {
+  isError,
+  field,
+  ...props
+}: IFieldInput) {
   return (
     <div className={cn("w-full", classNameParent)}>
       {label && <Label>{label}</Label>}
@@ -27,7 +23,7 @@ export default function CInputV2({
           {iconImg && (
             <Image
               src={iconImg}
-              alt="profile icon"
+              alt="icon"
               width={iconSize || 20}
               height={iconSize || 20}
               className="flex-shrink-0"
@@ -35,17 +31,14 @@ export default function CInputV2({
           )}
         </div>
         <Input
-          placeholder={`${placeholder} ${required ? "*" : ""}`}
+          placeholder={props.placeholder}
           className={cn(className, {
             "pl-7": iconSvg,
             "pl-10": iconImg,
           })}
-          type={type}
           onWheel={(event) => event.currentTarget.blur()}
-          checked={checked}
-          value={value}
-          name={name}
-          onChange={onChange}
+          checked={props.checked}
+          isError={isError}
         />
       </div>
     </div>

@@ -1,3 +1,4 @@
+import { Label } from "@/components/ui/label";
 import * as React from "react";
 import {
   Select,
@@ -7,113 +8,63 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
-import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
-type CSelectBase = CSelect &
-  (
-    | { isForm: true; onChange?: (value: string) => void }
-    | { isForm?: false; onChange?: (value: string) => void }
-  );
+interface CSelects extends CSelect {
+  form: any;
+  name: string;
+}
 
-export function CSelect({
-  options,
+export default function CSelect({
   label,
-  placeholder = "Select an option",
-  isForm = false,
-  form,
-  name,
-  required = false,
   className,
   classNameParent,
-  onChange,
-}: CSelectBase) {
-  return isForm ? (
-    <FormField
-      control={form.control}
+  placeholder,
+  options,
+  form,
+  name,
+}: CSelects) {
+  return (
+    <form.Field
       name={name}
-      render={({ field, fieldState }) => {
-        const isError = fieldState.error?.message;
-
+      validators={form.validators}
+      children={(field: any) => {
         return (
-          <FormItem>
-            <FormControl>
-              <BaseSelect
-                isForm
-                label={label}
-                classNameParent={classNameParent}
-                className={className}
-                required={required}
-                form={form.value}
-                name={name}
-                onChange={field.onChange}
-                placeholder={placeholder}
-                options={options}
-              />
-            </FormControl>
-            {isError && <FormMessage />}
-          </FormItem>
+          <div className={cn("w-full", classNameParent)}>
+            {label && <Label>{label}</Label>}
+            <Select
+              value={field.state.value as string}
+              onValueChange={(e) => field.handleChange(e)}
+            >
+              <div className="relative mb-[25px]">
+                <SelectTrigger className={cn(className)}>
+                  <SelectValue placeholder={placeholder} />
+                </SelectTrigger>
+                {field.state.meta.errors.length ? (
+                  <em className="absolute left-0 bottom-[-20px] text-xs text-red-500">
+                    {field.state.meta.errors
+                      ?.map((err: any) => err.message)
+                      ?.join(", ")}
+                  </em>
+                ) : null}
+              </div>
+              <SelectContent>
+                <SelectGroup>
+                  {options.map((option) => (
+                    <SelectItem
+                      key={option.value}
+                      value={option.value}
+                      className="text-foreground"
+                    >
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
         );
       }}
     />
-  ) : (
-    <BaseSelect
-      isForm={false}
-      label={label}
-      classNameParent={classNameParent}
-      className={className}
-      required={required}
-      form={form[name]}
-      name={name}
-      onChange={onChange}
-      placeholder={placeholder}
-      options={options}
-    />
   );
 }
-
-const BaseSelect = ({
-  label,
-  classNameParent,
-  className,
-  required,
-  form,
-  onChange,
-  placeholder,
-  options,
-}: CSelectBase) => {
-  return (
-    <div className={cn("w-full", classNameParent)}>
-      {label && (
-        <Label>
-          {label}
-          {required ? " *" : ""}
-        </Label>
-      )}
-      <Select value={form} onValueChange={onChange}>
-        <SelectTrigger className={cn(className)}>
-          <SelectValue placeholder={placeholder} />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            {options.map((option) => (
-              <SelectItem
-                key={option.value}
-                value={option.value}
-                className="text-foreground"
-              >
-                {option.label}
-              </SelectItem>
-            ))}
-          </SelectGroup>
-        </SelectContent>
-      </Select>
-    </div>
-  );
-};

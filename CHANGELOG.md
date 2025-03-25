@@ -79,3 +79,9 @@
 - (Refactor) change validation using tanstack/form over react-hook-form
 - (Refactor) update demo-validation
 - (Refactor) make dialog and drawer in same file (no need to import twice, only dialog)
+
+### Change
+
+- (Refactor) move input non validation to /custome
+- (Refactor) update types cselect and cinput
+- (Refactor) update how show the error (only 1)

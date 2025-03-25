@@ -1,17 +1,15 @@
 import { cn } from "@/lib/utils";
-import { Label } from "../ui/label";
+import { Label } from "@/components/ui/label";
 import Image from "next/image";
-import { Input } from "../ui/input";
+import { Input } from "@/components/ui/input";
 
-export default function FieldInput({
+export default function CInputField({
   className,
   classNameParent,
   label,
   iconSvg,
   iconImg,
   iconSize,
-  isError,
-  field,
   ...props
 }: IFieldInput) {
   return (
@@ -31,14 +29,12 @@ export default function FieldInput({
           )}
         </div>
         <Input
-          placeholder={props.placeholder}
           className={cn(className, {
             "pl-7": iconSvg,
             "pl-10": iconImg,
           })}
           onWheel={(event) => event.currentTarget.blur()}
-          checked={props.checked}
-          isError={isError}
+          {...props}
         />
       </div>
     </div>

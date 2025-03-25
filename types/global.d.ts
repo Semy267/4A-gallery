@@ -34,10 +34,6 @@ declare interface ICTable {
 
 declare interface IFieldInput
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  isError?: string;
-  name: string;
-  form?: any;
-  field?: any;
   label?: string;
   className?: string;
   classNameParent?: string;
@@ -160,12 +156,9 @@ declare type CCarouselWithoutDots = ICarousel & {
 declare type CCarousel = CCarouselWithDots | CCarouselWithoutDots;
 
 declare interface CSelect {
-  form: any;
-  name: string;
   options: IOpt[];
   label?: string;
   placeholder?: string;
-  required?: boolean;
   className?: string;
   classNameParent?: string;
 }

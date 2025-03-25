@@ -6,7 +6,6 @@ import { Suspense } from "react";
 import DynamicList from "@/components/shared/dynamic-list";
 import DemoCarousel from "@/components/module/example/demo-carousel";
 import Pagination from "@/components/shared/pagination";
-import DemoSelect from "@/components/module/example/demo-select";
 import DemoInput from "@/components/module/example/demo-input";
 
 export default function Page() {
@@ -42,7 +41,6 @@ export default function Page() {
       <Suspense>
         <Pagination totalPages={20} />
       </Suspense>
-      <DemoSelect />
       <DemoInput />
     </div>
   );

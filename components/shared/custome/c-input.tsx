@@ -3,12 +3,14 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-interface ICinput
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "form"> {
+interface ICinput extends IFieldInput {
+  validators?: {
+    onChange?: (args: any) => void;
+    onChangeAsync: (args: any) => void;
+    onChangeAsyncDebounceMs: number;
+  };
   name: string;
-  label?: string;
-  validators?: any;
-  form: any; // NOTE if u know the type of form, please let me know or just open pr
+  form: any;
 }
 
 export default function CInput({
@@ -35,9 +37,7 @@ export default function CInput({
             />
             {field.state.meta.errors.length ? (
               <em className="absolute left-0 bottom-[-20px] text-xs text-red-500">
-                {field.state.meta.errors
-                  ?.map((err: any) => err.message)
-                  ?.join(", ")}
+                {field.state.meta.errors?.map((err: any) => err.message)?.[0]}
               </em>
             ) : null}
           </div>

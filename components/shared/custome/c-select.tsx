@@ -1,14 +1,4 @@
-import { Label } from "@/components/ui/label";
-import * as React from "react";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { cn } from "@/lib/utils";
+import CSelectField from "./c-select-field";
 
 interface CSelects extends CSelect {
   form: any;
@@ -23,6 +13,9 @@ export default function CSelect({
   options,
   form,
   name,
+  iconSvg,
+  iconImg,
+  iconSize,
 }: CSelects) {
   return (
     <form.Field
@@ -30,39 +23,19 @@ export default function CSelect({
       validators={form.validators}
       children={(field: any) => {
         return (
-          <div className={cn("w-full", classNameParent)}>
-            {label && <Label>{label}</Label>}
-            <Select
-              value={field.state.value as string}
-              onValueChange={(e) => field.handleChange(e)}
-            >
-              <div className="relative mb-[25px]">
-                <SelectTrigger className={cn(className)}>
-                  <SelectValue placeholder={placeholder} />
-                </SelectTrigger>
-                {field.state.meta.errors.length ? (
-                  <em className="absolute left-0 bottom-[-20px] text-xs text-red-500">
-                    {field.state.meta.errors
-                      ?.map((err: any) => err.message)
-                      ?.join(", ")}
-                  </em>
-                ) : null}
-              </div>
-              <SelectContent>
-                <SelectGroup>
-                  {options.map((option) => (
-                    <SelectItem
-                      key={option.value}
-                      value={option.value}
-                      className="text-foreground"
-                    >
-                      {option.label}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
+          <CSelectField
+            className={className}
+            classNameParent={classNameParent}
+            placeholder={placeholder}
+            label={label}
+            value={field.state.value as string}
+            field={field}
+            onChange={(e) => field.handleChange(e)}
+            options={options}
+            iconSvg={iconSvg}
+            iconImg={iconImg}
+            iconSize={iconSize}
+          />
         );
       }}
     />

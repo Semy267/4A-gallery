@@ -34,7 +34,20 @@ declare interface ICTable {
 
 declare interface IFieldInput
   extends React.InputHTMLAttributes<HTMLInputElement> {
+  field?: any;
   label?: string;
+  className?: string;
+  classNameParent?: string;
+  iconSvg?: any;
+  iconImg?: any;
+  iconSize?: number;
+}
+
+declare interface CSelect {
+  field?: any;
+  options: IOpt[];
+  label?: string;
+  placeholder?: string;
   className?: string;
   classNameParent?: string;
   iconSvg?: any;
@@ -154,11 +167,3 @@ declare type CCarouselWithoutDots = ICarousel & {
 };
 
 declare type CCarousel = CCarouselWithDots | CCarouselWithoutDots;
-
-declare interface CSelect {
-  options: IOpt[];
-  label?: string;
-  placeholder?: string;
-  className?: string;
-  classNameParent?: string;
-}

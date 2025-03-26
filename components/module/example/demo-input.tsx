@@ -1,4 +1,5 @@
 "use client";
+import { MdOutlineAttachEmail } from "react-icons/md";
 import CButton from "@/components/shared/custome/c-button";
 import CInput from "@/components/shared/custome/c-input";
 import CInputField from "@/components/shared/custome/c-input-field";
@@ -60,13 +61,25 @@ export default function DemoInput() {
           placeholder="jhon_doe"
           form={form}
         />
-        <CInput name="email" placeholder="example@gmail.com" form={form} />
+        <CInput
+          iconSvg={<MdOutlineAttachEmail size={16} />}
+          name="email"
+          placeholder="example@gmail.com"
+          form={form}
+        />
         <CInput name="password" placeholder="password" form={form} />
         <CSelect
           name="hobby"
           placeholder="Hobby"
           options={OPT_DUMMY}
           form={form}
+        />
+        <CSelect
+          name="hobby"
+          placeholder="Hobby"
+          options={OPT_DUMMY}
+          form={form}
+          iconSvg={<MdOutlineAttachEmail size={16} />}
         />
         <CButton title="Submit" type="submit" />
       </form>

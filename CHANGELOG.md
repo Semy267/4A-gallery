@@ -85,3 +85,8 @@
 - (Refactor) move input non validation to /custome
 - (Refactor) update types cselect and cinput
 - (Refactor) update how show the error (only 1)
+
+### Change
+
+- (Refactor) make cinput and cselect more reusable and added more props
+- (Fix) validation zod empty string

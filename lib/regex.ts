@@ -1,9 +1,14 @@
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const emptyRegex = /^$/;
 
 export function validateEmail(email: string) {
   return emailRegex.test(email);
 }
 
+export const cannotEmpty = {
+  regex: emptyRegex,
+  msg: "Tidak boleh kosong",
+};
 export const regexNumbersOnly = {
   regex: /^[0-9]+$/,
   msg: "Only Numbers",

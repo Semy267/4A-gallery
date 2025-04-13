@@ -90,3 +90,7 @@
 
 - (Refactor) make cinput and cselect more reusable and added more props
 - (Fix) validation zod empty string
+
+### Added
+
+- compount component

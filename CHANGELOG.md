@@ -94,3 +94,8 @@
 ### Added
 
 - compount component
+
+### Change
+
+- (Fix) adding props showClose to handle close modal or drawer
+- (UI) update ui drawer and dialog

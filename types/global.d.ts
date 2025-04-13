@@ -79,7 +79,7 @@ declare interface IModal {
   paddingContent?: boolean;
   headerTitleClassName?: string;
   showHeader?: boolean;
-  messaging?: boolean;
+  showClose?: boolean;
 }
 
 declare interface CModal {
@@ -96,6 +96,7 @@ declare interface CModal {
   width: string;
   children: React.ReactNode;
   setIsOpen: (open: boolean) => void;
+  showClose?: boolean;
 }
 
 declare interface IDrawer {
@@ -105,6 +106,7 @@ declare interface IDrawer {
   data?: null | any;
   height: string;
   paddingContent?: boolean;
+  showClose?: boolean;
 }
 
 declare interface CDrawer {
@@ -114,6 +116,7 @@ declare interface CDrawer {
   setIsOpen: () => void;
   headerTitle?: string;
   paddingContent?: boolean;
+  showClose?: boolean;
 }
 
 declare interface IRootStore {

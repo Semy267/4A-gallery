@@ -5,12 +5,12 @@ import CDialog from "@/shared/custome/c-dialog";
 import DConfirmation from "./d-confirmation";
 import { useBreakpoint } from "@/lib/hooks";
 import CDrawer from "../custome/c-drawer";
-import { DrawerContent } from "@/components/ui/drawer";
 
 export default function CoreDialog() {
   const { dialog, drawer, closeDrawer, closeDialog } = store();
   const open = dialog?.open || drawer?.open || false;
   const id = dialog?.id || drawer?.id;
+  const showClose = dialog?.showClose || drawer?.showClose;
   const paddingContent = dialog?.paddingContent || drawer?.paddingContent;
   const headerTitle = dialog?.headerTitle || drawer?.headerTitle;
   const showHeader = dialog?.showHeader;
@@ -19,7 +19,7 @@ export default function CoreDialog() {
   const headerClassName = dialog?.headerClassName || "";
   const { isMobile } = useBreakpoint();
 
-  const ModalContent = () => {
+  const Content = () => {
     switch (id) {
       case "CONFRIMATION":
         return <DConfirmation />;
@@ -36,8 +36,9 @@ export default function CoreDialog() {
             headerTitle={headerTitle}
             height={height}
             paddingContent={paddingContent}
+            showClose={showClose}
           >
-            <DrawerContent />
+            <Content />
           </CDrawer>
         );
       default:
@@ -51,8 +52,9 @@ export default function CoreDialog() {
             width={width}
             setIsOpen={() => closeDialog}
             headerClassName={headerClassName}
+            showClose={showClose}
           >
-            <ModalContent />
+            <Content />
           </CDialog>
         );
     }

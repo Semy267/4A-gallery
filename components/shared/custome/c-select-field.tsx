@@ -37,7 +37,7 @@ export default function CSelectField({
         <div className={cn("relative", field && "mb-[25px]")}>
           <SelectTrigger
             className={cn(className, "relative", {
-              "!border-red-500 focus-visible:!ring-red-500": isError,
+              "border-red-500! focus-visible:ring-red-500!": isError,
             })}
           >
             <div className="absolute top-1/2 left-3 -translate-y-1/2">
@@ -48,7 +48,7 @@ export default function CSelectField({
                   alt="icon"
                   width={iconSize || 20}
                   height={iconSize || 20}
-                  className="flex-shrink-0"
+                  className="shrink-0"
                 />
               )}
             </div>

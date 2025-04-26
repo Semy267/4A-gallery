@@ -23,7 +23,7 @@ const CModal = ({
   return (
     <Dialog open={open} onOpenChange={setIsOpen}>
       <DialogContent
-        className={cn(styles.content, height, width, !paddingContent && "!p-0")}
+        className={cn(styles.content, height, width, !paddingContent && "p-0!")}
       >
         {showHeader && (
           <DialogHeader className={cn(showClose && "text-left")}>

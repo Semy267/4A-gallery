@@ -1,101 +1,57 @@
 # Changelog
 
-## 0.1.0
+All notable changes to this project will be documented in this file.
+
+## [0.1.0] - 2025-04-26
 
 ### Added
 
-- lib use-media
-- hook useBreakpoint
+- Added `use-media` library.
+- Added `useBreakpoint` hook.
+- Added custom Carousel component (incomplete, but usable).
+- Added Pagination component and styles.
+- Added custom Select component.
+- Added Tanstack Form integration.
+- Added compound components.
+- Moved to `pnpm`.
 
 ### Changed
 
-- update README.md
-- change tsconfig path from @\* to @/
-- update the path related to components
-- update name of useStore to store
-- update types CButton to work with title or children
+- Updated `README.md`.
+- Changed TS config path from `@*` to `@/`.
+- Updated all component import paths.
+- Renamed `useStore` to `store`.
+- Updated `CButton` types to accept `title` or `children`.
+- Updated project to Next.js 15.
+- Updated Modal and Drawer identifiers (`modalName`, `drawerName` → `id`).
+- Refactored custom Input and Select components for better reusability.
+- Changed validation from `react-hook-form` to `tanstack/form`.
+- Combined Dialog and Drawer components into a single import.
+- Improved UI styles for Drawer, Dialog, Inputs, and Selects.
+- Added Esc key and outside click to close Drawer.
 
-### Fix
+### Fixed
 
-- path export image
+- Fixed image export path issues.
+- Resolved merge conflicts with `dev` branch.
+- Fixed img path errors.
+- Fixed type and key errors.
+- Fixed Zod validation for empty strings.
 
-### Changed
+### Refactored
 
-- update lib to work with husky
-- update from next 14 to 15
-- update from modalName and drawerName to id
+- Removed TODOs from README.
+- Made custom Input component reusable and standardized.
+- Moved custom carousel types to `global.d.ts`.
+- Updated how form errors are displayed.
 
-### Fix
+### Chore
 
-- conflict within dev branch
+- Added Husky integration.
 
-### Added
+## [0.1.0] - 2025-04-27
 
-- move to pnpm
+### Chore
 
-### Fix
-
-- fixing img path
-- fixing error types and keys
-
-### Added
-
-- custome carousel (not completed yet need adjustment, but can be used)
-
-### Addedd
-
-- adding more props for flexiblity custome carousel
-
-### Changed
-
-- move types custome carousel to globald.d.ts
-
-### Changed
-
-- (Refactor) remove some todo in readme
-- (Refactor) update btn (size none and)
-
-### Added
-
-- pagination
-- style pagination
-
-### Added
-
-- custome select
-
-### Change
-
-- (Refactor) make custome input only 1
-- (Refactor) change color input, select, drawer and dialog
-- (Refactor) adding Esc and outside click to close drawer
-
-### Added
-
-- tanstack/form
-
-### Change
-
-- (Refactor) change validation using tanstack/form over react-hook-form
-- (Refactor) update demo-validation
-- (Refactor) make dialog and drawer in same file (no need to import twice, only dialog)
-
-### Change
-
-- (Refactor) move input non validation to /custome
-- (Refactor) update types cselect and cinput
-- (Refactor) update how show the error (only 1)
-
-### Change
-
-- (Refactor) make cinput and cselect more reusable and added more props
-- (Fix) validation zod empty string
-
-### Added
-
-- compount component
-
-### Change
-
-- (Fix) adding props showClose to handle close modal or drawer
-- (UI) update ui drawer and dialog
+- Update format CHANGELOG
+- Update tailwindCSS to v4

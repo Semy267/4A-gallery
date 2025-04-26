@@ -26,7 +26,7 @@ export default function CInputField({
               alt="icon"
               width={iconSize || 20}
               height={iconSize || 20}
-              className="flex-shrink-0"
+              className="shrink-0"
             />
           )}
         </div>

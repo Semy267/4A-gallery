@@ -17,7 +17,7 @@ export default function DemoCarousel() {
         <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 h-20">
           <div
             className={cn("p-5 bg-red-600", {
-              "!bg-neutral-400": index == current,
+              "bg-neutral-400!": index == current,
             })}
           >
             <span className="text-3xl font-semibold">{index + 1}</span>

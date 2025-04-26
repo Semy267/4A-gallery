@@ -23,7 +23,7 @@ const CDrawer = ({
     >
       <DrawerContent>
         <DrawerHeader className={cn(showClose && "text-left py-0")}>
-          <DrawerTitle className="!text-foreground">{headerTitle}</DrawerTitle>
+          <DrawerTitle className="text-foreground!">{headerTitle}</DrawerTitle>
           {showClose && <CloseModal />}
         </DrawerHeader>
         <div className={cn("p-4", !paddingContent && "p-0")}>{children}</div>

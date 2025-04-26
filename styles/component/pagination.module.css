@@ -1,3 +1,5 @@
+@reference "../../app/globals.css";
+
 .parent {
   @apply flex items-center gap-2 justify-between;
 }

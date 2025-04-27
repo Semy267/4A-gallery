@@ -7,6 +7,7 @@ import DynamicList from "@/components/shared/dynamic-list";
 import DemoCarousel from "@/components/module/example/demo-carousel";
 import Pagination from "@/components/shared/pagination";
 import DemoInput from "@/components/module/example/demo-input";
+import DemoDropdown from "@/components/module/example/demo-dropdown";
 
 export default function Page() {
   const { setOpenDialog } = store();
@@ -36,12 +37,12 @@ export default function Page() {
         item={["Item 1", "Item 2", "Item 3"]}
         render={(item) => <div key={item}>{item}</div>}
       />
-      <DemoInput />
       <DemoCarousel />
       <Suspense>
         <Pagination totalPages={20} />
       </Suspense>
       <DemoInput />
+      <DemoDropdown />
     </div>
   );
 }

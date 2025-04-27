@@ -1,6 +1,6 @@
 declare interface CButton
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  icon?: string;
+  icon?: string | React.ReactNode;
   className?: string;
   onClick?: () => void;
   disable?: boolean;

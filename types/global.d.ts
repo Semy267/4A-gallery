@@ -33,7 +33,7 @@ declare interface ICTable {
 }
 
 declare interface IFieldInput
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+  extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
   field?: any;
   label?: string;
   className?: string;
@@ -41,6 +41,20 @@ declare interface IFieldInput
   iconSvg?: any;
   iconImg?: any;
   iconSize?: number;
+}
+
+interface ICinput extends IFieldInput {
+  name: string;
+  label?: string;
+  validators?: any;
+  form: any; // NOTE if u know the type of form, please let me know or just open pr
+}
+
+declare interface ITextArea {
+  value: string;
+  placeholder?: string;
+  className?: string;
+  isError?: boolean;
 }
 
 declare interface CSelect {

@@ -9,6 +9,8 @@ import { OPT_DUMMY } from "@/lib/constants";
 import { UserSchema } from "@/lib/validation";
 import { useForm } from "@tanstack/react-form";
 import { useState } from "react";
+import CTextareaField from "@/components/shared/custome/c-textarea-field";
+import CTextarea from "@/components/shared/custome/c-textarea";
 
 export default function DemoInput() {
   const [payload, setPayload] = useState({
@@ -52,6 +54,7 @@ export default function DemoInput() {
         }}
       >
         <CInput name="name" placeholder="Jhon Doe" form={form} />
+        <CTextarea name="name" placeholder="Jhon Doe" form={form} />
         <CInput
           validators={{
             onChangeAsyncDebounceMs: 500,
@@ -95,6 +98,11 @@ export default function DemoInput() {
           options={OPT_DUMMY}
           value={payload.type}
           onChange={(e) => setPayload({ ...payload, type: e })}
+        />
+        <CTextareaField
+          placeholder="ajsja"
+          value={payload.search}
+          onChange={(e) => setPayload({ ...payload, search: e.target.value })}
         />
       </div>
     </div>

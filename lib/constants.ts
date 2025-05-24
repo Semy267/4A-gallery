@@ -10,3 +10,18 @@ export const OPT_DUMMY = [
   { value: "9", label: "Option 9" },
   { value: "10", label: "Option 10" },
 ];
+
+export const MONTHS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];

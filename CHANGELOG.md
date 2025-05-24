@@ -2,6 +2,10 @@
 
 ll notable changes to this project will be documented in this file.
 
+# [0.1.0] - 2025-05-24
+
+- (Wip) - custom date picker
+
 # [0.1.0] - 2025-05-08
 
 - (Feat) - custome popover

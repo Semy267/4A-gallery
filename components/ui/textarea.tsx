@@ -22,7 +22,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, ITextArea>(
         value={value}
         rows={1}
         className={cn(
-          "w-full h-10 max-h-[15vh] rounded-md border border-neutral-500 bg-input px-3 py-2 text-foreground text-base resize-none custom-scrollbar overflow-y-auto text-sm focus:outline-none",
+          "w-full h-10 max-h-[15vh] rounded-md border border-border bg-input px-3 py-2 text-foreground text-base resize-none custom-scrollbar overflow-y-auto text-sm focus:outline-none",
           className,
           isError && "border-red-500",
         )}

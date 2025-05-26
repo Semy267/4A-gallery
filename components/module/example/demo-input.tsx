@@ -11,11 +11,17 @@ import { useForm } from "@tanstack/react-form";
 import { useState } from "react";
 import CTextareaField from "@/components/shared/custome/c-textarea-field";
 import CTextarea from "@/components/shared/custome/c-textarea";
+import CDatePicker from "@/components/shared/date-picker";
 
 export default function DemoInput() {
   const [payload, setPayload] = useState({
     search: "",
     type: "",
+    age: new Date(),
+    date: {
+      from: new Date(),
+      to: new Date(),
+    },
   });
 
   const form = useForm({
@@ -98,6 +104,15 @@ export default function DemoInput() {
           options={OPT_DUMMY}
           value={payload.type}
           onChange={(e) => setPayload({ ...payload, type: e })}
+        />
+        <CDatePicker
+          mode="range"
+          value={payload.date}
+          onChange={(val: any) => setPayload({ ...payload, date: val })}
+        />
+        <CDatePicker
+          value={payload.age}
+          onChange={(e: any) => setPayload({ ...payload, age: e })}
         />
         <CTextareaField
           placeholder="ajsja"

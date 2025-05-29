@@ -51,12 +51,15 @@ export default function Headers({
   };
 
   return (
-    <div className="flex items-center justify-between px-4 pt-2">
+    <div className="flex items-center justify-between px-4 pt-2 bg-background">
       <Select
         value={String(month.getMonth())}
         onValueChange={(val) => handleMonthChange(parseInt(val))}
       >
-        <SelectTrigger id={`month`} className="h-[34px] w-[120px]">
+        <SelectTrigger
+          id={`month`}
+          className="h-[34px] w-[120px] text-foreground"
+        >
           <SelectValue placeholder="Month" />
         </SelectTrigger>
         <SelectContent>
@@ -71,7 +74,10 @@ export default function Headers({
         value={String(year)}
         onValueChange={(val) => handleYearChange(parseInt(val))}
       >
-        <SelectTrigger id={`year`} className="h-[34px] w-[100px]">
+        <SelectTrigger
+          id={`year`}
+          className="h-[34px] w-[100px] text-foreground"
+        >
           <SelectValue placeholder="Year" />
         </SelectTrigger>
         <SelectContent>

@@ -12,6 +12,7 @@ import { useState } from "react";
 import CTextareaField from "@/components/shared/custome/c-textarea-field";
 import CTextarea from "@/components/shared/custome/c-textarea";
 import CDatePicker from "@/components/shared/date-picker";
+import { addDays } from "date-fns";
 
 export default function DemoInput() {
   const [payload, setPayload] = useState({
@@ -20,7 +21,7 @@ export default function DemoInput() {
     age: new Date(),
     date: {
       from: new Date(),
-      to: new Date(),
+      to: addDays(new Date(), 5),
     },
   });
 
@@ -109,6 +110,7 @@ export default function DemoInput() {
           mode="range"
           value={payload.date}
           onChange={(val: any) => setPayload({ ...payload, date: val })}
+          maxDate={addDays(new Date(), 31)}
         />
         <CDatePicker
           value={payload.age}

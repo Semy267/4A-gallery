@@ -1,10 +1,14 @@
 # Changelog
 
-ll notable changes to this project will be documented in this file.
+all notable changes to this project will be documented in this file.
+
+# [0.1.0] - 2025-05-29
+
+- (Feat) - custom date picker (color)
 
 # [0.1.0] - 2025-05-26
 
-- (Feat) - custom date picker
+- (Wip) - custom date picker
 
 # [0.1.0] - 2025-05-24
 

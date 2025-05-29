@@ -5,6 +5,8 @@ all notable changes to this project will be documented in this file.
 # [0.1.0] - 2025-05-29
 
 - (Feat) - custom date picker (color)
+- (Feat) - custome select (more flexible)
+- (Wip) - update custome input
 
 # [0.1.0] - 2025-05-26
 

@@ -3,8 +3,6 @@ import { MdOutlineAttachEmail } from "react-icons/md";
 import CButton from "@/components/shared/custome/c-button";
 import CInput from "@/components/shared/custome/c-input";
 import CInputField from "@/components/shared/custome/c-input-field";
-import CSelect from "@/components/shared/custome/c-select";
-import CSelectField from "@/components/shared/custome/c-select-field";
 import { OPT_DUMMY } from "@/lib/constants";
 import { UserSchema } from "@/lib/validation";
 import { useForm } from "@tanstack/react-form";
@@ -13,6 +11,8 @@ import CTextareaField from "@/components/shared/custome/c-textarea-field";
 import CTextarea from "@/components/shared/custome/c-textarea";
 import CDatePicker from "@/components/shared/date-picker";
 import { addDays } from "date-fns";
+import CSelectForm from "@/components/shared/select/select-form";
+import CSelect from "@/components/shared/select";
 
 export default function DemoInput() {
   const [payload, setPayload] = useState({
@@ -72,24 +72,23 @@ export default function DemoInput() {
           form={form}
         />
         <CInput
-          iconSvg={<MdOutlineAttachEmail size={16} />}
+          iconSvg={MdOutlineAttachEmail}
           name="email"
           placeholder="example@gmail.com"
           form={form}
         />
         <CInput name="password" placeholder="password" form={form} />
-        <CSelect
+        <CSelectForm
           name="hobby"
-          placeholder="Hobby"
           options={OPT_DUMMY}
+          placeholder="Hobby"
           form={form}
         />
-        <CSelect
+        <CSelectForm
           name="hobby"
           placeholder="Hobby"
           options={OPT_DUMMY}
           form={form}
-          iconSvg={<MdOutlineAttachEmail size={16} />}
         />
         <CButton title="Submit" type="submit" />
       </form>
@@ -100,7 +99,7 @@ export default function DemoInput() {
           value={payload.search}
           onChange={(e) => setPayload({ ...payload, search: e.target.value })}
         />
-        <CSelectField
+        <CSelect
           placeholder="select type"
           options={OPT_DUMMY}
           value={payload.type}

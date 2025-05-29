@@ -57,16 +57,23 @@ declare interface ITextArea {
   isError?: boolean;
 }
 
-declare interface CSelect {
-  field?: any;
+declare interface IOpt {
+  label: string;
+  value: string;
+}
+declare interface ISelectCommon {
+  value: string | undefined;
+  onChange: (value: string) => void;
   options: IOpt[];
+}
+
+declare interface ICSelect extends ISelectCommon {
+  trigger?: React.ReactNode;
   label?: string;
   placeholder?: string;
   className?: string;
   classNameParent?: string;
-  iconSvg?: any;
-  iconImg?: any;
-  iconSize?: number;
+  classNameContent?: string;
 }
 
 declare type CImage = {

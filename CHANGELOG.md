@@ -6,6 +6,7 @@ all notable changes to this project will be documented in this file.
 
 - (Feat) - update custome input (more flexible)
 - (Refactor) - update filename textarea
+- (Refactor) - reorganize cdialog and cdrawer comp
 
 # [0.1.0] - 2025-05-29
 

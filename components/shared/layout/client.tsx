@@ -7,14 +7,13 @@ import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import Loading from "../loading";
 
 export default function Client({ children }: { children: React.ReactNode }) {
-  const { loading, clearLoading, closeDialog, closeDrawer } = useAuthStore();
+  const { loading, clearLoading, closeDialog } = useAuthStore();
   const path = usePathname();
 
   useEffect(() => {
     if (path) {
       clearLoading();
       closeDialog();
-      closeDrawer();
     }
   }, [path]);
 

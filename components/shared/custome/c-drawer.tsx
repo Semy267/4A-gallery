@@ -5,28 +5,24 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { cn } from "@/lib/utils";
-import CloseModal from "../close-dialog";
+import CloseDialog from "../close-dialog";
 
 const CDrawer = ({
-  open,
+  open = false,
   setIsOpen,
   children,
-  headerTitle,
-  paddingContent = true,
-  showClose = true,
-}: CDrawer) => {
+  title,
+  isPadding = true,
+  isClose = true,
+}: CDialog) => {
   return (
-    <Drawer
-      open={open}
-      onOpenChange={(isOpen) => (!isOpen ? setIsOpen() : null)}
-      dismissible={false}
-    >
+    <Drawer open={open} onOpenChange={setIsOpen} dismissible={false}>
       <DrawerContent>
-        <DrawerHeader className={cn(showClose && "text-left py-0")}>
-          <DrawerTitle className="text-foreground!">{headerTitle}</DrawerTitle>
-          {showClose && <CloseModal />}
+        <DrawerHeader className={cn(isClose && "text-left py-0")}>
+          <DrawerTitle className="text-foreground!">{title}</DrawerTitle>
+          {isClose && <CloseDialog />}
         </DrawerHeader>
-        <div className={cn("p-4", !paddingContent && "p-0")}>{children}</div>
+        <div className={cn("p-4", !isPadding && "p-0")}>{children}</div>
       </DrawerContent>
     </Drawer>
   );

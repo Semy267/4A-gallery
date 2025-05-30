@@ -17,8 +17,7 @@ export default function Page() {
     setOpenDialog({
       id: "CONFRIMATION",
       width: "w-[300px]",
-      height: "h-auto md:h-[200px]",
-      headerTitle: "Confirmation",
+      title: "Confirmation",
       data: {
         onConfirmation: () => console.log("confirm"),
         text: "Are you sure?",

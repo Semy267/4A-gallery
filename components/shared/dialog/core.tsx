@@ -1,22 +1,21 @@
 "use client";
 
 import store from "@/store";
-import CDialog from "@/shared/custome/c-dialog";
-import DConfirmation from "./d-confirmation";
 import { useBreakpoint } from "@/lib/hooks";
-import CDrawer from "../custome/c-drawer";
+import CDialog from "@/shared/custome/c-dialog";
+import CDrawer from "@/shared/custome/c-drawer";
+import DConfirmation from "./d-confirmation";
 
 export default function CoreDialog() {
-  const { dialog, drawer, closeDrawer, closeDialog } = store();
-  const open = dialog?.open || drawer?.open || false;
-  const id = dialog?.id || drawer?.id;
-  const showClose = dialog?.showClose || drawer?.showClose;
-  const paddingContent = dialog?.paddingContent || drawer?.paddingContent;
-  const headerTitle = dialog?.headerTitle || drawer?.headerTitle;
-  const showHeader = dialog?.showHeader;
-  const height = dialog?.height || drawer?.height || "";
-  const width = dialog?.width || "";
-  const headerClassName = dialog?.headerClassName || "";
+  const { dialog, closeDialog } = store();
+  const id = dialog?.id;
+  const title = dialog?.title;
+  const width = dialog?.width;
+  const height = dialog?.height;
+  const open = dialog?.open || false;
+  const isClose = dialog?.isClose;
+  const isPadding = dialog?.isPadding;
+  const classNameTitle = dialog?.classNameTitle;
   const { isMobile } = useBreakpoint();
 
   const Content = () => {
@@ -32,11 +31,11 @@ export default function CoreDialog() {
         return (
           <CDrawer
             open={open}
-            setIsOpen={() => closeDrawer}
-            headerTitle={headerTitle}
+            setIsOpen={() => closeDialog()}
+            title={title}
             height={height}
-            paddingContent={paddingContent}
-            showClose={showClose}
+            isPadding={isPadding}
+            isClose={isClose}
           >
             <Content />
           </CDrawer>
@@ -44,15 +43,14 @@ export default function CoreDialog() {
       default:
         return (
           <CDialog
-            paddingContent={paddingContent}
+            isPadding={isPadding}
             open={open}
-            headerTitle={headerTitle}
-            showHeader={showHeader}
+            title={title}
             height={height}
             width={width}
-            setIsOpen={() => closeDialog}
-            headerClassName={headerClassName}
-            showClose={showClose}
+            setIsOpen={() => closeDialog()}
+            classNameTitle={classNameTitle}
+            isClose={isClose}
           >
             <Content />
           </CDialog>
@@ -60,5 +58,5 @@ export default function CoreDialog() {
     }
   };
 
-  return open ? renderContent() : null;
+  return open && renderContent();
 }

@@ -1,38 +1,53 @@
-"use client";
-
-import CTextareaField from "./c-textarea-field";
+import { cn } from "@/lib/utils";
+import { Label } from "@/components/ui/label";
+import Image from "next/image";
+import Textarea from "@/components/ui/textarea";
 
 export default function CTextarea({
-  name,
-  validators,
+  className,
+  classNameParent,
   label,
-  form,
-  field,
   iconSvg,
   iconImg,
   iconSize,
+  field,
   ...props
-}: ICinput) {
+}: IFieldInput) {
+  const isError = field && field.state.meta.errors.length;
+  const { value, ...rest } = props;
   return (
-    <form.Field
-      name={name}
-      validators={validators}
-      children={(field: any) => {
-        return (
-          <CTextareaField
-            label={label}
-            name={name}
-            value={field.state.value as string}
-            onBlur={field.handleBlur}
-            onChange={(e) => field.handleChange(e.target.value)}
-            iconSvg={iconSvg}
-            iconImg={iconImg}
-            iconSize={iconSize}
-            field={field}
-            {...props}
-          />
-        );
-      }}
-    />
+    <div className={cn("w-full", classNameParent)}>
+      {label && <Label>{label}</Label>}
+      <div className={cn("relative", field && "mb-[25px]")}>
+        <div className="absolute top-1/2 left-3 -translate-y-1/2">
+          {iconSvg && iconSvg}
+          {iconImg && (
+            <Image
+              src={iconImg}
+              alt="icon"
+              width={iconSize || 20}
+              height={iconSize || 20}
+              className="shrink-0"
+            />
+          )}
+        </div>
+        <Textarea
+          value={String(value ?? "")}
+          placeholder={props.placeholder}
+          className={cn(className, {
+            "pl-9": iconSvg,
+            "pl-10": iconImg,
+          })}
+          checked={props.checked}
+          isError={isError}
+          {...rest}
+        />
+        {isError ? (
+          <em className="absolute left-0 bottom-[-20px] text-xs text-red-500">
+            {field.state.meta.errors?.map((err: any) => err.message)?.[0]}
+          </em>
+        ) : null}
+      </div>
+    </div>
   );
 }

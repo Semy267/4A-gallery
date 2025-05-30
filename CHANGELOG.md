@@ -2,6 +2,11 @@
 
 all notable changes to this project will be documented in this file.
 
+# [0.1.0] - 2025-05-30
+
+- (Feat) - update custome input (more flexible)
+- (Refactor) - update filename textarea
+
 # [0.1.0] - 2025-05-29
 
 - (Feat) - custom date picker (color)

@@ -3,17 +3,15 @@ import { Label } from "@/components/ui/label";
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
 
-export default function CInputField({
+export default function CInput({
   className,
   classNameParent,
   label,
   iconSvg: IconSvg,
   iconImg,
   iconSize = 20,
-  field,
   ...props
 }: IFieldInput) {
-  const isError = field && !!field.state.meta.errors.length;
   const hasIcon = !!IconSvg || !!iconImg;
   return (
     <div className={cn("w-full", classNameParent)}>
@@ -46,9 +44,6 @@ export default function CInputField({
           {...props}
         />
       </div>
-      {isError && (
-        <em>{field.state.meta.errors?.map((err: any) => err.message)?.[0]}</em>
-      )}
     </div>
   );
 }

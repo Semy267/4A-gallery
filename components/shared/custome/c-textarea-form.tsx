@@ -1,8 +1,8 @@
 "use client";
 
-import CInputField from "./c-input-field";
+import CTextarea from "./c-textarea";
 
-export default function CInput({
+export default function CTextareaForm({
   name,
   validators,
   label,
@@ -19,7 +19,7 @@ export default function CInput({
       validators={validators}
       children={(field: any) => {
         return (
-          <CInputField
+          <CTextarea
             label={label}
             name={name}
             value={field.state.value as string}

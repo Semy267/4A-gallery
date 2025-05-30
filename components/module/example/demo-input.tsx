@@ -1,18 +1,18 @@
 "use client";
 import { MdOutlineAttachEmail } from "react-icons/md";
 import CButton from "@/components/shared/custome/c-button";
-import CInput from "@/components/shared/custome/c-input";
-import CInputField from "@/components/shared/custome/c-input-field";
 import { OPT_DUMMY } from "@/lib/constants";
 import { UserSchema } from "@/lib/validation";
 import { useForm } from "@tanstack/react-form";
 import { useState } from "react";
-import CTextareaField from "@/components/shared/custome/c-textarea-field";
 import CTextarea from "@/components/shared/custome/c-textarea";
+import CTextareaForm from "@/components/shared/custome/c-textarea-form";
 import CDatePicker from "@/components/shared/date-picker";
 import { addDays } from "date-fns";
 import CSelectForm from "@/components/shared/select/select-form";
 import CSelect from "@/components/shared/select";
+import CInput from "@/components/shared/input";
+import CInputForm from "@/components/shared/input/input-form";
 
 export default function DemoInput() {
   const [payload, setPayload] = useState({
@@ -60,9 +60,9 @@ export default function DemoInput() {
           form.handleSubmit();
         }}
       >
-        <CInput name="name" placeholder="Jhon Doe" form={form} />
-        <CTextarea name="name" placeholder="Jhon Doe" form={form} />
-        <CInput
+        <CInputForm name="name" placeholder="Jhon Doe" form={form} />
+        <CTextareaForm name="name" placeholder="Jhon Doe" form={form} />
+        <CInputForm
           validators={{
             onChangeAsyncDebounceMs: 500,
             onChangeAsync: handleChangeAsync,
@@ -71,13 +71,13 @@ export default function DemoInput() {
           placeholder="jhon_doe"
           form={form}
         />
-        <CInput
+        <CInputForm
           iconSvg={MdOutlineAttachEmail}
           name="email"
           placeholder="example@gmail.com"
           form={form}
         />
-        <CInput name="password" placeholder="password" form={form} />
+        <CInputForm name="password" placeholder="password" form={form} />
         <CSelectForm
           name="hobby"
           options={OPT_DUMMY}
@@ -94,7 +94,7 @@ export default function DemoInput() {
       </form>
 
       <div className="w-full grid grid-cols-1 gap-[8px]">
-        <CInputField
+        <CInput
           placeholder="ajsja"
           value={payload.search}
           onChange={(e) => setPayload({ ...payload, search: e.target.value })}
@@ -115,7 +115,7 @@ export default function DemoInput() {
           value={payload.age}
           onChange={(e: any) => setPayload({ ...payload, age: e })}
         />
-        <CTextareaField
+        <CTextarea
           placeholder="ajsja"
           value={payload.search}
           onChange={(e) => setPayload({ ...payload, search: e.target.value })}

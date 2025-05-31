@@ -76,14 +76,14 @@ export default function Pagination({ totalPages = 1 }: PaginationProps) {
       <div>
         <CButton
           onClick={() => handlePageChange(Math.max(1, qPage - 1))}
-          disable={qPage === 1}
+          disabled={qPage === 1}
           variant="ghost"
           size="none"
           title="Previous"
         />
         <CButton
           onClick={() => handlePageChange(Math.min(totalPages, qPage + 1))}
-          disable={qPage === totalPages}
+          disabled={qPage === totalPages}
           size="none"
           variant="ghost"
           title="Next"

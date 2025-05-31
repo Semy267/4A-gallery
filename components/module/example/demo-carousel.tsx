@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 
 export default function DemoCarousel() {
-  const [current, setCurrent] = useState(0);
-  const [current2, setCurrent2] = useState(0);
+  const [current, setCurrent] = useState(1);
+  const [current2, setCurrent2] = useState(1);
   return (
     <>
       <CCarousel
@@ -27,12 +27,7 @@ export default function DemoCarousel() {
           </CarouselItem>
         ))}
       </CCarousel>
-      <CCarousel
-        showArrow={false}
-        showDots
-        current={current2}
-        setCurrent={setCurrent2}
-      >
+      <CCarousel showArrow={false} current={current2} setCurrent={setCurrent2}>
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem
             key={index}

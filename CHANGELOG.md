@@ -2,6 +2,11 @@
 
 all notable changes to this project will be documented in this file.
 
+# [0.1.0] - 2025-05-31
+
+- (Fix) - carousel behavior (not show the correct index)
+- (Fix) - typo disable it should be disabled on pagination
+
 # [0.1.0] - 2025-05-30
 
 - (Feat) - update custome input (more flexible)

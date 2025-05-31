@@ -52,10 +52,10 @@ export default function CCarousel({
     }
 
     setCount(api.scrollSnapList().length);
-    setCurrent && setCurrent(api.selectedScrollSnap() + 1);
+    setCurrent && setCurrent(api.selectedScrollSnap());
 
     api.on("select", () => {
-      setCurrent && setCurrent(api.selectedScrollSnap() + 1);
+      setCurrent && setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
 
@@ -63,7 +63,8 @@ export default function CCarousel({
     <Carousel
       setApi={setApi}
       opts={{
-        align: "start",
+        align: "center",
+        loop: true,
       }}
       className={cn("w-full", {
         "pt-10": isOutTop && showArrow,
@@ -78,7 +79,7 @@ export default function CCarousel({
             align: dotAlign,
           })}
         >
-          Slide {current} of {count}
+          Slide {current + 1} of {count}
         </div>
       )}
 

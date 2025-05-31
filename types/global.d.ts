@@ -115,7 +115,7 @@ declare interface ICarousel {
 }
 
 declare type CCarouselWithDots = ICarousel & {
-  showDots: true;
+  showDots?: true;
   current: number;
   setCurrent: React.Dispatch<React.SetStateAction<number>>;
 };

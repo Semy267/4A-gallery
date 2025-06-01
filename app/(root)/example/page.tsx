@@ -9,6 +9,7 @@ import Pagination from "@/components/shared/pagination";
 import DemoInput from "@/components/module/example/demo-input";
 import DemoDropdown from "@/components/module/example/demo-dropdown";
 import DemoPopover from "@/components/module/example/demo-popover";
+import DemoTable from "@/components/module/example/demo-table";
 
 export default function Page() {
   const { setOpenDialog } = store();
@@ -44,6 +45,7 @@ export default function Page() {
       <DemoInput />
       <DemoDropdown />
       <DemoPopover />
+      <DemoTable />
     </div>
   );
 }

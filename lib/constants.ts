@@ -25,3 +25,30 @@ export const MONTHS = [
   "November",
   "December",
 ];
+
+export const TABLE_COLUMN = [
+  {
+    id: "a7b",
+    title: "Alpha Task",
+    status: "In Progress",
+    assignee: "Alice",
+    priority: "High",
+    createdAt: "2025-05-01",
+  },
+  {
+    id: "x9k",
+    title: "Beta Release",
+    status: "Done",
+    assignee: "Bob",
+    priority: "Low",
+    createdAt: "2025-04-20",
+  },
+  {
+    id: "z1p",
+    title: "Gamma Update",
+    status: "To Do",
+    assignee: "Charlie",
+    priority: "Medium",
+    createdAt: "2025-06-01",
+  },
+];

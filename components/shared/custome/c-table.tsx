@@ -46,7 +46,7 @@ export default function CTable({
         <TableHeader className={classNameHeader}>
           <TableRow>
             {select && setSelect && (
-              <TableHead className="sticky left-0 bg-white z-10">
+              <TableHead className="sticky left-0 bg-bacground z-10">
                 <input
                   type="checkbox"
                   checked={select.length === column.length && column.length > 0}
@@ -72,9 +72,9 @@ export default function CTable({
         </TableHeader>
         <TableBody>
           {column?.map((row, rowIndex) => (
-            <TableRow key={row.invoice}>
+            <TableRow key={rowIndex}>
               {select && setSelect && (
-                <TableCell className="sticky left-0 bg-white">
+                <TableCell className="sticky left-0 bg-bacground">
                   <input
                     type="checkbox"
                     checked={select.includes(row.id)}

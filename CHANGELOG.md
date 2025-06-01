@@ -2,6 +2,11 @@
 
 all notable changes to this project will be documented in this file.
 
+# [0.1.0] - 2025-06-1
+
+- (Feat) - show demo table
+- (Feat) - formattedDate utils
+
 # [0.1.0] - 2025-05-31
 
 - (Fix) - carousel behavior (not show the correct index)

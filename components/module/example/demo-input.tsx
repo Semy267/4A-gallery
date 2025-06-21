@@ -13,11 +13,13 @@ import CSelectForm from "@/components/shared/select/select-form";
 import CSelect from "@/components/shared/select";
 import CInput from "@/components/shared/input";
 import CInputForm from "@/components/shared/input/input-form";
+import CSelectMulti from "@/components/shared/select/select-multi";
 
 export default function DemoInput() {
   const [payload, setPayload] = useState({
     search: "",
     type: "",
+    category: [] as string[],
     age: new Date(),
     booking: undefined,
     date: {
@@ -101,10 +103,15 @@ export default function DemoInput() {
           onChange={(e) => setPayload({ ...payload, search: e.target.value })}
         />
         <CSelect
-          placeholder="select type"
           options={OPT_DUMMY}
+          placeholder="select type"
           value={payload.type}
           onChange={(e) => setPayload({ ...payload, type: e })}
+        />
+        <CSelectMulti
+          value={payload.category}
+          onChange={(e) => setPayload({ ...payload, category: e })}
+          options={OPT_DUMMY}
         />
         <CDatePicker
           mode="range"

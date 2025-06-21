@@ -36,6 +36,7 @@ interface BaseDatePicker {
   label?: string;
   children?: React.ReactNode;
   mode?: Mode;
+  isHeader?: boolean;
 }
 
 type Mode = "single" | "range";
@@ -70,6 +71,7 @@ const CDatePicker = React.forwardRef<
       placeholder = "Pick a date",
       showIcon = true,
       mode = "single",
+      isHeader = false,
       ...rest
     },
     ref,
@@ -146,7 +148,7 @@ const CDatePicker = React.forwardRef<
                   type="button"
                   ref={ref}
                   className={cn(
-                    "bg-input w-full h-10 px-3 text-sm border border-border rounded-md flex items-center justify-start gap-[8px]",
+                    "cursor-pointer bg-input w-full h-10 px-3 text-sm border border-border rounded-md flex items-center justify-start gap-[8px]",
                     !value && "text-muted-foreground",
                   )}
                   onClick={() => setIsPopoverOpen(!isPopoverOpen)}
@@ -161,19 +163,21 @@ const CDatePicker = React.forwardRef<
             </div>
           </PopoverTrigger>
           <PopoverContent className="w-auto p-0" align="start">
-            <Headers
-              year={year}
-              month={month}
-              setMonth={setMonth}
-              setYear={setYear}
-              maxDate={maxDate}
-              minDate={minDate}
-              onChange={(d: any) => {
-                if (!isRangeMode) {
-                  (onChange as (date: Date | undefined) => void)(d);
-                }
-              }}
-            />
+            {isHeader && (
+              <Headers
+                year={year}
+                month={month}
+                setMonth={setMonth}
+                setYear={setYear}
+                maxDate={maxDate}
+                minDate={minDate}
+                onChange={(d: any) => {
+                  if (!isRangeMode) {
+                    (onChange as (date: Date | undefined) => void)(d);
+                  }
+                }}
+              />
+            )}
             {mode === "single" ? (
               <Calendar
                 mode="single"
@@ -182,7 +186,6 @@ const CDatePicker = React.forwardRef<
                 onSelect={
                   handleDateSelect as (selected: Date | undefined) => void
                 }
-                initialFocus
                 disabled={(date) => date > maxDate || date < minDate}
                 month={month}
                 onMonthChange={setMonth}
@@ -195,7 +198,6 @@ const CDatePicker = React.forwardRef<
                 onSelect={
                   handleDateSelect as (selected: DateRange | undefined) => void
                 }
-                initialFocus
                 disabled={(date) => date > maxDate || date < minDate}
                 month={month}
                 onMonthChange={setMonth}

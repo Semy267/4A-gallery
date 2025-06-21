@@ -4,6 +4,12 @@ all notable changes to this project will be documented in this file.
 
 # [0.1.0] - 2025-06-20
 
+- (Chore) - update react-day-picker to latest
+- (Refactor) - update daypicker for more flexible
+- (Fix) - update validation onChange year and mond based min and max date
+
+# [0.1.0] - 2025-06-20
+
 - (Chore) - update next and react to latest
 
 # [0.1.0] - 2025-06-1

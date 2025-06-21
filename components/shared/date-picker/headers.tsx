@@ -36,30 +36,32 @@ export default function Headers({
 
   const handleMonthChange = (newMonthIndex: number) => {
     if (newMonthIndex < 0 || newMonthIndex > 11) return;
-    const newMonth = new Date(year, newMonthIndex, 1);
-    setMonth(newMonth);
-    onChange(newMonth);
+    const newDate = new Date(year, newMonthIndex, 1);
+    if (newDate < minDate || newDate > maxDate) return;
+    setMonth(newDate);
+    onChange(newDate);
   };
 
   const handleYearChange = (newYear: number) => {
     if (newYear < minDate.getFullYear() || newYear > maxDate.getFullYear())
       return;
+
     const newDate = new Date(newYear, month.getMonth(), 1);
+
+    if (newDate < minDate || newDate > maxDate) return;
+
     setYear(newYear);
     setMonth(newDate);
     onChange(newDate);
   };
 
   return (
-    <div className="flex items-center justify-between px-4 pt-2 bg-background">
+    <div className="flex items-center justify-between gap-[8px] px-4 pt-2 bg-background">
       <Select
         value={String(month.getMonth())}
         onValueChange={(val) => handleMonthChange(parseInt(val))}
       >
-        <SelectTrigger
-          id={`month`}
-          className="h-[34px] w-[120px] text-foreground"
-        >
+        <SelectTrigger id={`month`} className="!h-[34px] text-foreground">
           <SelectValue placeholder="Month" />
         </SelectTrigger>
         <SelectContent>
@@ -74,10 +76,7 @@ export default function Headers({
         value={String(year)}
         onValueChange={(val) => handleYearChange(parseInt(val))}
       >
-        <SelectTrigger
-          id={`year`}
-          className="h-[34px] w-[100px] text-foreground"
-        >
+        <SelectTrigger id={`year`} className="!h-[34px] text-foreground">
           <SelectValue placeholder="Year" />
         </SelectTrigger>
         <SelectContent>

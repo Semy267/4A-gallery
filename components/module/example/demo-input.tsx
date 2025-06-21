@@ -19,6 +19,7 @@ export default function DemoInput() {
     search: "",
     type: "",
     age: new Date(),
+    booking: undefined,
     date: {
       from: new Date(),
       to: addDays(new Date(), 5),
@@ -114,6 +115,11 @@ export default function DemoInput() {
         <CDatePicker
           value={payload.age}
           onChange={(e: any) => setPayload({ ...payload, age: e })}
+          isHeader
+        />
+        <CDatePicker
+          value={payload.booking}
+          onChange={(e: any) => setPayload({ ...payload, booking: e })}
         />
         <CTextarea
           placeholder="ajsja"

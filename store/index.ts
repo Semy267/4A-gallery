@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const initialDialog: IDialog = {
+const initialDialog: IOverlay = {
   id: "",
 };
 
@@ -8,10 +8,10 @@ const store = create<IRootStore>((set) => ({
   loading: false,
   setLoading: () => set({ loading: true }),
   clearLoading: () => set({ loading: false }),
-  dialog: null,
-  setOpenDialog: (dialog: IDialog) =>
-    set({ dialog: { ...dialog, open: true } }),
-  closeDialog: () => set({ dialog: initialDialog }),
+  overlay: null,
+  setOpenOverlay: (overlay: IOverlay) =>
+    set({ overlay: { ...overlay, open: true } }),
+  closeOverlay: () => set({ overlay: initialDialog }),
 }));
 
 export default store;

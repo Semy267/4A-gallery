@@ -1,9 +1,19 @@
+import { VariantProps } from "class-variance-authority";
+import { Button, buttonVariants } from "@/ui/button";
 import { cn } from "@/lib/utils";
-import { Button } from "@/ui/button";
 
-type CButtonProps =
-  | { title: string; children?: never } // Requires title if children is not provided
-  | { title?: string; children: React.ReactNode }; // Requires children if title is not provided
+type CButtonBaseProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof buttonVariants> & {
+    icon?: string | React.ReactNode;
+    className?: string;
+    onClick?: () => void;
+  };
+
+type CButtonConditionalProps =
+  | { title: string; children?: never }
+  | { title?: string; children: React.ReactNode };
+
+type CButtonProps = CButtonBaseProps & CButtonConditionalProps;
 
 export default function CButton({
   title,
@@ -15,7 +25,7 @@ export default function CButton({
   font,
   children,
   ...props
-}: CButton & CButtonProps) {
+}: CButtonProps) {
   return (
     <Button
       {...props}

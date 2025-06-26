@@ -2,12 +2,12 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import useAuthStore from "@/store";
-import CoreDialog from "../dialog/core";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import Loading from "../loading";
+import OverlayWrapper from "../overlay-wrapper";
 
 export default function Client({ children }: { children: React.ReactNode }) {
-  const { loading, clearLoading, closeDialog } = useAuthStore();
+  const { loading, clearLoading, closeOverlay: closeDialog } = useAuthStore();
   const path = usePathname();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Client({ children }: { children: React.ReactNode }) {
   return (
     <>
       {loading && <Loading isBg />}
-      <CoreDialog />
+      <OverlayWrapper />
       <ProgressBar
         height="4px"
         color="var(--primary)"

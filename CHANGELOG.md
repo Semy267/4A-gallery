@@ -2,6 +2,15 @@
 
 all notable changes to this project will be documented in this file.
 
+# [0.1.0] - 2025-06-26
+
+- (Feat) - put dialog and drawer (become overlay wrapper)
+- (Feat) - make overlay flexible
+- (Style) - update ui and fix functionality both dialog and drawer
+- (Refactor) - update cbutton types using buttonVariant types over write manualy
+- (Style) - update name variant button and ui
+- (Refactor) - remove cdialog, cdialog and dialog.module.css
+
 # [0.1.0] - 2025-06-20
 
 - (Feat) - CSelectMulti

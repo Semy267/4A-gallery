@@ -67,7 +67,7 @@
     @apply text-xl;
   }
   button {
-    @apply focus:outline-hidden focus:ring-0 focus-visible:ring-0 focus-visible:outline-hidden;
+    @apply cursor-pointer focus:outline-hidden focus:ring-0 focus-visible:ring-0 focus-visible:outline-hidden;
   }
   em {
     @apply text-xs text-red-500;

@@ -20,21 +20,22 @@ const buttonVariants = cva(
       size: {
         default: "h-10 px-4 py-2",
         none: "p-0",
-        sm: "h-9 rounded-md px-3",
+        sm: "h-8 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
       },
       font: {
-        nrl: "font-normal",
-        mdm: "font-medium",
-        sbd: "font-semibold",
-        bd: "font-bold",
+        default: "font-medium",
+        normal: "font-normal",
+        medium: "font-medium",
+        semibold: "font-semibold",
+        bold: "font-bold",
       },
     },
     defaultVariants: {
       variant: "default",
       size: "lg",
-      font: "nrl",
+      font: "default",
     },
   },
 );

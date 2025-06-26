@@ -3,13 +3,13 @@ import store from "@/store";
 import { cn } from "@/lib/utils";
 
 export default function CloseOverlay({ className }: { className?: string }) {
-  const { closeOverlay } = store();
+  const { closeOverlay: closeDialog } = store();
 
   return (
     <button
       type="button"
-      onClick={closeOverlay}
-      className={cn("absolute right-4 top-4", className)}
+      onClick={closeDialog}
+      className={cn("absolute right-4 top-3", className)}
     >
       <IoMdClose size={20} />
     </button>

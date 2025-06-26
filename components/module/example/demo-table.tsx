@@ -1,3 +1,4 @@
+"use client";
 import CTable from "@/components/shared/custome/c-table";
 import { TABLE_COLUMN } from "@/lib/constants";
 import { formattedDate } from "@/lib/utils";

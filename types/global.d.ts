@@ -12,7 +12,7 @@ declare interface CButton
     | "ghost"
     | "link";
   size?: "default" | "sm" | "lg" | "icon" | "none";
-  font?: "nrl" | "mdm" | "sbd" | "bd";
+  font?: "default" | "normal" | "medium" | "semibold" | "bold";
 }
 
 declare interface ICTable {

@@ -18,7 +18,7 @@ export default function CTextarea({
   return (
     <div className={cn("w-full", classNameParent)}>
       {label && <Label>{label}</Label>}
-      <div className={cn("relative", field && "mb-[25px]")}>
+      <div className={cn("relative")}>
         <div className="absolute top-1/2 left-3 -translate-y-1/2">
           {iconSvg && iconSvg}
           {iconImg && (
@@ -43,7 +43,7 @@ export default function CTextarea({
           {...rest}
         />
         {isError ? (
-          <em className="absolute left-0 bottom-[-20px] text-xs text-red-500">
+          <em>
             {field.state.meta.errors?.map((err: any) => err.message)?.[0]}
           </em>
         ) : null}

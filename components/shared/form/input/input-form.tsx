@@ -20,7 +20,7 @@ export default function CInputForm({
       children={(field: any) => {
         const isError = field && !!field.state.meta.errors.length;
         return (
-          <>
+          <div>
             <CInput
               label={label}
               name={name}
@@ -39,7 +39,7 @@ export default function CInputForm({
                 {field.state.meta.errors?.map((err: any) => err.message)?.[0]}
               </em>
             )}
-          </>
+          </div>
         );
       }}
     />

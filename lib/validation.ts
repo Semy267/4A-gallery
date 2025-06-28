@@ -27,6 +27,8 @@ export const UserSchema = z.object({
     .max(15, "Maximum 15 characters")
     .regex(usernameRegex.regex, usernameRegex.msg),
   hobby: z.string().min(1, "Hobby Harus diisi"),
+  agree: z.string().min(1, "Harus pilih"),
+  multi: z.string().min(1, "Pilih minimal 1"),
 });
 
 export const ProfileSchema = z.object({

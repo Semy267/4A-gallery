@@ -10,7 +10,7 @@ declare interface IRootStore {
 declare interface IOverlayCommon {
   title?: string;
   classNameTitle?: string;
-  titleAlign?: "start" | "center" | "end";
+  titleAlign?: React.CSSProperties["textAlign"];
   isPadding?: boolean;
   isClose?: boolean;
   disableOutsideInteraction?: boolean;

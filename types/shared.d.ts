@@ -45,10 +45,30 @@ declare interface IFieldInput
 
 interface ICinput extends IFieldInput {
   name: string;
-  label?: string;
   validators?: any;
   form: any; // NOTE if u know the type of form, please let me know or just open pr
 }
+
+declare type CFormBase = {
+  name: string;
+  validators?: any;
+  label?: string;
+  form: any;
+  field?: any;
+} & React.InputHTMLAttributes<HTMLInputElement>;
+
+declare type CFormWithOpt = CFormBase & {
+  opt: IOpt[];
+  value?: string;
+};
+
+declare type CFormSingle = CFormBase & {
+  value: string;
+  opt?: undefined;
+};
+
+declare type CRadioFormProps = CFormSingle | CFormWithOpt;
+declare type CCheckboxFormProps = CFormSingle | CFormWithOpt;
 
 declare interface ITextArea {
   value: string;
@@ -127,3 +147,28 @@ declare type CCarouselWithoutDots = ICarousel & {
 };
 
 declare type CCarousel = CCarouselWithDots | CCarouselWithoutDots;
+
+declare interface BaseDialogDrawer {
+  title?: string | React.ReactNode;
+  classNameTitle?: string;
+  titleAlign?: React.CSSProperties["textAlign"];
+  isPadding?: boolean;
+  disableOutsideInteraction?: boolean;
+  children: React.ReactNode;
+}
+
+declare interface ControlledDialogDrawer extends BaseDialogDrawer {
+  open: boolean;
+  onClose: () => void;
+  isClose?: boolean;
+  trigger?: never;
+}
+
+declare interface UncontrolledDialogDrawer extends BaseDialogDrawer {
+  open?: undefined;
+  onClose?: () => void;
+  isClose?: never;
+  trigger: React.ReactNode;
+}
+
+declare type IDialogDrawer = ControlledDialogDrawer | UncontrolledDialogDrawer;

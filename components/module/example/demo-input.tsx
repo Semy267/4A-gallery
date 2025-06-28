@@ -5,15 +5,19 @@ import { OPT_DUMMY } from "@/lib/constants";
 import { UserSchema } from "@/lib/validation";
 import { useForm } from "@tanstack/react-form";
 import { useState } from "react";
-import CTextarea from "@/components/shared/custome/c-textarea";
-import CTextareaForm from "@/components/shared/custome/c-textarea-form";
-import CDatePicker from "@/components/shared/date-picker";
+import CTextarea from "@/components/shared/form/textarea/c-textarea";
+import CTextareaForm from "@/components/shared/form/textarea/c-textarea-form";
+import CDatePicker from "@/components/shared/form/date-picker";
 import { addDays } from "date-fns";
-import CSelectForm from "@/components/shared/select/select-form";
-import CSelect from "@/components/shared/select";
-import CInput from "@/components/shared/input";
-import CInputForm from "@/components/shared/input/input-form";
-import CSelectMulti from "@/components/shared/select/select-multi";
+import CSelectForm from "@/components/shared/form/select/select-form";
+import CSelect from "@/components/shared/form/select";
+import CInput from "@/components/shared/form/input";
+import CInputForm from "@/components/shared/form/input/input-form";
+import CSelectMulti from "@/components/shared/form/select/select-multi";
+import CRadioForm from "@/components/shared/form/radio/radion-form";
+import CCheckboxForm from "@/components/shared/form/checkbox/checkbox-form";
+import { CRadio } from "@/components/shared/form/radio";
+import { CCheckbox } from "@/components/shared/form/checkbox";
 
 export default function DemoInput() {
   const [payload, setPayload] = useState({
@@ -35,6 +39,8 @@ export default function DemoInput() {
       email: "",
       password: "",
       hobby: "",
+      agree: "",
+      multi: "",
     },
     validators: {
       onChange: UserSchema,
@@ -56,7 +62,7 @@ export default function DemoInput() {
   return (
     <div className="size-full max-w-2xl mx-auto flex items-start justify-center gap-[8px]">
       <form
-        className="size-full"
+        className="size-full grid gap-[12px]"
         onSubmit={(e) => {
           e.preventDefault();
           e.stopPropagation();
@@ -92,6 +98,13 @@ export default function DemoInput() {
           placeholder="Hobby"
           options={OPT_DUMMY}
           form={form}
+        />
+        <CRadioForm name="agree" form={form} opt={OPT_DUMMY?.slice(0, 4)} />
+        <CCheckboxForm
+          name="multi"
+          label="select preference"
+          form={form}
+          opt={OPT_DUMMY}
         />
         <CButton title="Submit" type="submit" />
       </form>
@@ -133,6 +146,8 @@ export default function DemoInput() {
           value={payload.search}
           onChange={(e) => setPayload({ ...payload, search: e.target.value })}
         />
+        <CRadio label="radio" />
+        <CCheckbox label="checbox" />
       </div>
     </div>
   );

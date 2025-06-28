@@ -1,6 +1,6 @@
 import CSelect from ".";
 import { SelectValue } from "@/components/ui/select";
-import Common from "../trigger/common";
+import Common from "@/components/shared/form/trigger/common";
 import { Calendar } from "lucide-react";
 
 interface ISelectForm {
@@ -18,7 +18,7 @@ export default function CSelectForm({ form, name, ...props }: ISelectForm) {
       children={(field: any) => {
         const isError = field && !!field.state.meta.errors.length;
         return (
-          <>
+          <div>
             <CSelect
               {...props}
               value={field.state.value}
@@ -37,7 +37,7 @@ export default function CSelectForm({ form, name, ...props }: ISelectForm) {
                 {field.state.meta.errors?.map((err: any) => err.message)?.[0]}
               </em>
             )}
-          </>
+          </div>
         );
       }}
     />

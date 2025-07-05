@@ -121,32 +121,24 @@ declare interface IDynamicList {
   length?: number;
 }
 
-declare interface ICarousel {
-  arrowPosition?:
-    | "inside"
-    | "inside-right"
-    | "inside-left"
-    | "outside-top"
-    | "outside-bottom";
-  dotPosition?: "inside" | "outside";
-  dotAlign?: "start" | "center" | "end";
+declare interface CarouselBase {
   showArrow?: boolean;
   children: React.ReactNode;
 }
 
-declare type CCarouselWithDots = ICarousel & {
+declare type CarouselWithDots = CarouselBase & {
   showDots?: true;
   current: number;
   setCurrent: React.Dispatch<React.SetStateAction<number>>;
 };
 
-declare type CCarouselWithoutDots = ICarousel & {
+declare type CarouselWithoutDots = CarouselBase & {
   showDots?: false;
   current?: never;
   setCurrent?: never;
 };
 
-declare type CCarousel = CCarouselWithDots | CCarouselWithoutDots;
+declare type CCarousel = CarouselWithDots | CarouselWithoutDots;
 
 declare interface BaseDialogDrawer {
   title?: string | React.ReactNode;

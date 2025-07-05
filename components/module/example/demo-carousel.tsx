@@ -10,8 +10,9 @@ export default function DemoCarousel() {
   return (
     <>
       <CCarousel
-        arrowPosition="inside-right"
+        showArrow
         showDots
+        arrowPosition={"outside-bottom-right"}
         current={current}
         setCurrent={setCurrent}
       >
@@ -27,7 +28,7 @@ export default function DemoCarousel() {
           </CarouselItem>
         ))}
       </CCarousel>
-      <CCarousel showArrow={false} current={current2} setCurrent={setCurrent2}>
+      <CCarousel current={current2} setCurrent={setCurrent2}>
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem
             key={index}

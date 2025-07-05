@@ -8,41 +8,57 @@ import {
   CarouselPrevious,
 } from "@/ui/carousel";
 import { cn } from "@/lib/utils";
-import { cva } from "class-variance-authority";
+import { cva, VariantProps } from "class-variance-authority";
 
-const dotVariants = cva(
-  "absolute py-2 text-center text-sm text-muted-foreground",
-  {
-    variants: {
-      position: {
-        outside: "",
-        inside: "bottom-10",
-      },
-      align: {
-        start: "left-0",
-        center: "left-1/2 -translate-x-1/2",
-        end: "right-0",
-      },
+export const dotVariants = cva("absolute", {
+  variants: {
+    dotPosition: {
+      outside: "top-18 left-1/2 -translate-x-1/2",
+      "outside-left": "top-18 left-0",
+      "outside-right": "top-18 right-0",
+      inside: "bottom-0 left-1/2 -translate-x-1/2",
+      "inside-left": "bottom-0 left-1",
+      "inside-right": "bottom-0 right-1",
     },
   },
-);
+  defaultVariants: {
+    dotPosition: "outside",
+  },
+});
 
+export const arrowVariants = cva("absolute", {
+  variants: {
+    arrowPosition: {
+      outside: "w-full h-fit -bottom-8 justify-between px-2",
+      "outside-bottom": "-bottom-8",
+      "outside-bottom-left": "-bottom-8 left-0",
+      "outside-bottom-right": "-bottom-8 right-0",
+      "outside-top-left": "-top-9 left-0",
+      "outside-top-right": "-top-9 right-0",
+      inside: "w-full h-fit bottom-1/2 translate-y-1/2 justify-between px-2",
+      "inside-bottom-left": "bottom-2 left-1",
+      "inside-bottom-right": "bottom-2 right-1",
+      "inside-top-left": "top-1 left-1",
+      "inside-top-right": "top-1 right-1",
+    },
+  },
+  defaultVariants: {
+    arrowPosition: "inside",
+  },
+});
+
+type ICarouselProps = CCarousel &
+  VariantProps<typeof dotVariants> &
+  VariantProps<typeof arrowVariants>;
 export default function CCarousel({
-  arrowPosition = "inside",
-  showArrow = true,
-  showDots = false,
-  dotPosition = "outside",
-  dotAlign = "center",
+  dotPosition,
+  arrowPosition,
+  showArrow,
+  showDots,
   children,
   current = 0,
-  setCurrent = () => {},
-}: CCarousel) {
-  const isOutBottom = arrowPosition === "outside-bottom";
-  const isOutTop = arrowPosition === "outside-top";
-  const isInside = arrowPosition === "inside";
-  const isInsideRight = arrowPosition === "inside-right";
-  const isInsideLeft = arrowPosition === "inside-left";
-
+  setCurrent,
+}: ICarouselProps) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [count, setCount] = React.useState(0);
 
@@ -66,44 +82,30 @@ export default function CCarousel({
         align: "center",
         loop: true,
       }}
-      className={cn("w-full", {
-        "pt-10": isOutTop && showArrow,
-        "pb-10": isOutBottom && showArrow,
-      })}
+      className={"w-full relative"}
     >
       <CarouselContent>{children}</CarouselContent>
       {showDots && (
         <div
-          className={dotVariants({
-            position: dotPosition,
-            align: dotAlign,
-          })}
+          className={cn(
+            "py-2 text-center text-sm text-muted-foreground",
+            dotVariants({ dotPosition }),
+          )}
         >
           Slide {current + 1} of {count}
         </div>
       )}
 
       {showArrow && (
-        <>
-          <CarouselPrevious
-            className={cn({
-              "bottom-0 right-12": isOutBottom,
-              "top-0 right-12": isOutTop,
-              "left-0 top-1/2 -translate-y-1/2": isInside,
-              "left-2 bottom-3": isInsideLeft,
-              "right-12 bottom-3": isInsideRight,
-            })}
-          />
-          <CarouselNext
-            className={cn({
-              "bottom-0 right-0": isOutBottom,
-              "top-0 right-0 ": isOutTop,
-              "right-0 top-1/2 -translate-y-1/2": isInside,
-              "left-12 bottom-3": isInsideLeft,
-              "right-2 bottom-3": isInsideRight,
-            })}
-          />
-        </>
+        <div
+          className={cn(
+            "size-fit flex gap-1",
+            arrowVariants({ arrowPosition }),
+          )}
+        >
+          <CarouselPrevious />
+          <CarouselNext />
+        </div>
       )}
     </Carousel>
   );

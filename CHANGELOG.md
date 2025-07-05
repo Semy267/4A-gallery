@@ -2,6 +2,11 @@
 
 all notable changes to this project will be documented in this file.
 
+# [0.1.0] - 2025-07-05
+
+- (Refactor) - Update dot and arrow variant carousel more flexible
+- (Refactor) - Update types carousel
+
 # [0.1.0] - 2025-06-28
 
 - (Feat) - cradio and cchecbox

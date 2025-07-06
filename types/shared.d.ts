@@ -123,16 +123,33 @@ declare interface IDynamicList {
 
 declare interface CarouselBase {
   showArrow?: boolean;
-  children: React.ReactNode;
 }
 
-declare type CarouselWithDots = CarouselBase & {
+declare type CarouselWithItem = CarouselBase & {
+  item: any[];
+  isLoading: boolean;
+  render: (item: any, id: number) => React.ReactNode;
+  width?: string;
+  children?: never;
+};
+
+declare type CarouselWithChildren = CarouselBase & {
+  item?: never;
+  width?: string;
+  isLoading?: boolean;
+  render?: (item: any, id: number) => React.ReactNode;
+  children: React.ReactNode;
+};
+
+declare type CarouselUsage = CarouselWithItem | CarouselWithChildren;
+
+declare type CarouselWithDots = CarouselUsage & {
   showDots?: true;
   current: number;
   setCurrent: React.Dispatch<React.SetStateAction<number>>;
 };
 
-declare type CarouselWithoutDots = CarouselBase & {
+declare type CarouselWithoutDots = CarouselUsage & {
   showDots?: false;
   current?: never;
   setCurrent?: never;

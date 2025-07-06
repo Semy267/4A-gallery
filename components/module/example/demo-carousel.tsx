@@ -45,6 +45,14 @@ export default function DemoCarousel() {
           </CarouselItem>
         ))}
       </CCarousel>
+      <CCarousel
+        isLoading
+        width="basis-1/2"
+        item={Array.from({ length: 5 })}
+        render={(_, id) => (
+          <div key={id} className={cn("bg-red-600 w-full h-40")} />
+        )}
+      />
     </>
   );
 }

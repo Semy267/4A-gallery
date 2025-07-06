@@ -4,11 +4,13 @@ import {
   Carousel,
   CarouselApi,
   CarouselContent,
+  CarouselItem,
   CarouselNext,
   CarouselPrevious,
 } from "@/ui/carousel";
 import { cn } from "@/lib/utils";
 import { cva, VariantProps } from "class-variance-authority";
+import CSkeleton from "./c-skeleton";
 
 export const dotVariants = cva("absolute", {
   variants: {
@@ -58,6 +60,10 @@ export default function CCarousel({
   children,
   current = 0,
   setCurrent,
+  item,
+  render,
+  isLoading,
+  width,
 }: ICarouselProps) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [count, setCount] = React.useState(0);
@@ -84,7 +90,30 @@ export default function CCarousel({
       }}
       className={"w-full relative"}
     >
-      <CarouselContent>{children}</CarouselContent>
+      <CarouselContent>
+        {children ? (
+          children
+        ) : (
+          <>
+            {isLoading &&
+              Array.from({ length: 6 }).map((_, id) => (
+                <CarouselItem key={id} className={width}>
+                  <CSkeleton
+                    length={1}
+                    className={cn("w-full h-full *:rounded-[4px]")}
+                  />
+                </CarouselItem>
+              ))}
+            {React.Children.toArray(
+              item?.map((item, id) => (
+                <CarouselItem className={width} key={id}>
+                  {render?.(item, id)}
+                </CarouselItem>
+              )),
+            )}
+          </>
+        )}
+      </CarouselContent>
       {showDots && (
         <div
           className={cn(

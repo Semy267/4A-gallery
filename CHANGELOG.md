@@ -2,6 +2,11 @@
 
 all notable changes to this project will be documented in this file.
 
+# [0.1.0] - 2025-07-06
+
+- (Refactor) - Update types ccarousel
+- (Feat) - Adding support for pass item, render and isLoading in ccarousel (more flexible and reusable)
+
 # [0.1.0] - 2025-07-05
 
 - (Refactor) - Update dot and arrow variant carousel more flexible

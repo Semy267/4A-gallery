@@ -10,7 +10,7 @@ import DemoDialog from "@/components/module/example/demo-overlay";
 
 export default function Page() {
   return (
-    <div className="p-2 container mx-auto w-full grid gap-10">
+    <div className="p-2 container grid gap-10">
       <DynamicList
         isLoading={false}
         item={["Item 1", "Item 2", "Item 3"]}

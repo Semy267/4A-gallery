@@ -2,6 +2,11 @@
 
 all notable changes to this project will be documented in this file.
 
+# [0.1.0] - 2025-07-012
+
+- (Style) - Reorganize global style
+- (Style) - custom container class
+
 # [0.1.0] - 2025-07-06
 
 - (Refactor) - Update types ccarousel

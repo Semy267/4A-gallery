@@ -18,6 +18,7 @@ import CRadioForm from "@/components/shared/form/radio/radion-form";
 import CCheckboxForm from "@/components/shared/form/checkbox/checkbox-form";
 import { CRadio } from "@/components/shared/form/radio";
 import { CCheckbox } from "@/components/shared/form/checkbox";
+import { CSwitch } from "@/components/shared/custome/c-switcher";
 
 export default function DemoInput() {
   const [payload, setPayload] = useState({
@@ -30,6 +31,7 @@ export default function DemoInput() {
       from: new Date(),
       to: addDays(new Date(), 5),
     },
+    enabled: false,
   });
 
   const form = useForm({
@@ -148,6 +150,10 @@ export default function DemoInput() {
         />
         <CRadio label="radio" />
         <CCheckbox label="checbox" />
+        <CSwitch
+          checked={payload.enabled}
+          onChange={(e) => setPayload({ ...payload, enabled: e })}
+        />
       </div>
     </div>
   );

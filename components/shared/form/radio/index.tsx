@@ -11,22 +11,27 @@ export const CRadio: React.FC<CRadioProps> = ({
   className,
   ...props
 }) => {
+  const id = React.useId();
+
   return (
-    <label className="flex items-center gap-[8px] cursor-pointer">
-      <input
-        {...props}
-        type="radio"
+    <label
+      htmlFor={id}
+      className={cn(
+        "flex items-center gap-2 cursor-pointer",
+        props.disabled && "cursor-not-allowed opacity-60",
+      )}
+    >
+      <input {...props} id={id} type="radio" className="peer hidden" />
+      <div
         className={cn(
-          "accent-primary cursor-pointer h-[20px] min-w-[20px] focus:ring-0 focus:ring-offset-0 focus:outline-0",
+          "w-5 h-5 rounded-full border border-border flex items-center justify-center",
+          "peer-checked:border-primary peer-checked:border-[5px] transition",
           className,
         )}
-      />
-      {label && (
-        <Label
-          label={label}
-          className={cn(props.disabled && "text-gray-400")}
-        />
-      )}
+      >
+        <div className="w-2.5 h-2.5 bg-primary rounded-full scale-0 peer-checked:scale-100 transition-transform" />
+      </div>
+      {label && <Label label={label} />}
     </label>
   );
 };

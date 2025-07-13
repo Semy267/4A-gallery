@@ -1,6 +1,7 @@
 import React from "react";
 import Label from "@/components/shared/label";
 import { cn } from "@/lib/utils";
+import { FaCheck } from "react-icons/fa";
 
 type CCheckboxProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
@@ -11,22 +12,27 @@ export const CCheckbox: React.FC<CCheckboxProps> = ({
   className,
   ...props
 }) => {
+  const id = React.useId();
+
   return (
-    <label className="flex items-center gap-[8px] cursor-pointer">
-      <input
-        type="checkbox"
-        {...props}
+    <label
+      htmlFor={id}
+      className={cn(
+        "flex items-center gap-2 cursor-pointer",
+        props.disabled && "cursor-not-allowed opacity-60",
+      )}
+    >
+      <input id={id} type="checkbox" {...props} className="peer hidden" />
+      <div
         className={cn(
-          "accent-primary cursor-pointer h-[20px] min-w-[20px] focus:ring-0 focus:ring-offset-0 focus:outline-0",
+          "w-5 h-5 border border-border rounded-sm flex items-center justify-center transition",
+          "peer-checked:bg-primary peer-checked:border-primary",
           className,
         )}
-      />
-      {label && (
-        <Label
-          label={label}
-          className={cn(props.disabled && "text-gray-400")}
-        />
-      )}
+      >
+        {props.checked && <FaCheck className="text-white" size={12} />}
+      </div>
+      {label && <Label label={label} />}
     </label>
   );
 };

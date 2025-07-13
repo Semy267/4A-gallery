@@ -2,7 +2,12 @@
 
 all notable changes to this project will be documented in this file.
 
-# [0.1.0] - 2025-07-012
+# [0.1.0] - 2025-07-13
+
+- (Refactor) - Make cradio and cchecbox more flexible to customize
+- (Feat) - Adding cswitcher component
+
+# [0.1.0] - 2025-07-12
 
 - (Style) - Reorganize global style
 - (Style) - custom container class

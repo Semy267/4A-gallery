@@ -1,32 +1,62 @@
-import { Suspense } from "react";
-import DynamicList from "@/components/shared/dynamic-list";
-import DemoCarousel from "@/components/module/example/demo-carousel";
-import Pagination from "@/components/shared/pagination";
-import DemoInput from "@/components/module/example/demo-input";
-import DemoDropdown from "@/components/module/example/demo-dropdown";
-import DemoPopover from "@/components/module/example/demo-popover";
-import DemoTable from "@/components/module/example/demo-table";
-import DemoDialog from "@/components/module/example/demo-overlay";
+"use client";
+import CImage from "@/components/shared/custome/c-image";
+import { Title } from "@/lib/image";
+import Image from "next/image";
+import React, { useEffect } from "react";
+import { AnimatePresence, motion } from "motion/react";
 
 export default function Page() {
-  return (
-    <div className="p-2 container grid gap-10">
-      <div className="">halo world</div>
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const audioRef = React.useRef<HTMLAudioElement>(null);
+  const [isPlay, setIsPlay] = React.useState(false);
+  const [isWarning, setIsWarning] = React.useState(true);
 
-      <DynamicList
-        isLoading={false}
-        item={["Item 1", "Item 2", "Item 3"]}
-        render={(item) => <div key={item}>{item}</div>}
-      />
-      <DemoCarousel />
-      <Suspense>
-        <Pagination totalPages={20} />
-      </Suspense>
-      <DemoInput />
-      <DemoDropdown />
-      <DemoPopover />
-      <DemoTable />
-      <DemoDialog />
-    </div>
+  const handlePlay = () => {
+    if (!videoRef.current) return;
+
+    if (isPlay) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+
+    setIsPlay(!isPlay);
+  };
+  return (
+    <AnimatePresence>
+      {isWarning ? (
+        <div className="relative w-screen h-screen overflow-hidden flex justify-between flex-col items-center"></div>
+      ) : (
+        <div className="relative w-screen h-screen overflow-hidden">
+          <video
+            ref={videoRef}
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={"/videos/title-menu.mp4"} type="video/mp4" />
+            Browser anda belum support dawg
+          </video>
+          <audio autoPlay loop ref={audioRef} muted>
+            <source src="/sounds/sound-title.mp3" type="audio/mpeg" />
+            Browser anda belum support dawg
+          </audio>
+          <div className="z-20 w-full h-full flex justify-between flex-col items-center">
+            <div className="w-[1200px] z-20">
+              <Image
+                src={Title}
+                width={1200}
+                height={1200}
+                alt="title"
+                className=" object-contain"
+              />
+            </div>
+            <button className="z-20 text-white" onClick={handlePlay}>
+              mulai
+            </button>
+            <h1></h1>
+          </div>
+        </div>
+      )}
+    </AnimatePresence>
   );
 }

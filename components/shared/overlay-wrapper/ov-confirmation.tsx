@@ -8,19 +8,10 @@ export default function OvConfirmation() {
   return (
     <div className="flex flex-col gap-[12px]">
       <p>Are you sure want to delete your life?</p>
-      <div className="flex items-center justify-end gap-[8px]">
-        <CButton
-          title="No"
-          size={"sm"}
-          variant={"outline"}
-          onClick={closeOverlay}
-        />
-        <CButton
-          title="Yes"
-          size={"sm"}
-          variant={"secondary"}
-          onClick={onConfirmation}
-        />
+      <div className="flex items-center justify-center gap-[8px]">
+        <CButton size={"default"} variant={"default"} onClick={onConfirmation}>
+          <span className="pt-1">ok</span>
+        </CButton>
       </div>
     </div>
   );

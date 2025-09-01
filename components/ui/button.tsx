@@ -5,27 +5,30 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm ring-offset-white transition-colors focus-visible:outline-hidden focus-visible:ring-0 focus-visible:ring-offset-0 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4",
+  "inline-flex items-center justify-center z-20 gap-2 whitespace-nowrap text-sm ring-offset-white transition-colors focus-visible:outline-hidden focus-visible:ring-0 focus-visible:ring-offset-0 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4",
   {
     variants: {
       variant: {
-        default: "bg-primary text-neutral-50 hover:bg-primary/90",
+        default:
+          "bg-neutral-900 relative !rounded-none text-neutral-300 shadow-[0_0_0_2px_rgba(103,104,106,255)] before:absolute before:pointer-events-none before:border-2 before:border-[#353536] before:w-full before:h-full border-2 border-[#131415]",
         destructive: "bg-red-500 text-neutral-50 hover:bg-red-500/90",
         outline: "border bg-transparent text-neutral-900",
         outline_primary: "border border-primary bg-transparent text-primary",
-        secondary: "bg-secondary text-neutral-50 hover:bg-secondary/80",
+        secondary: "text-neutral-300 relative ",
         ghost: "",
         link: "text-neutral-900 underline-offset-4 hover:underline dark:text-neutral-50",
       },
       size: {
-        default: "h-10 px-4 py-2",
+        default: "px-15 h-8",
+        secondary: "px-8",
         none: "p-0",
         sm: "h-8 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
       },
       font: {
-        default: "font-medium",
+        default: "text-2xl font-trajan",
+        secondary: "uppercase ",
         normal: "font-normal",
         medium: "font-medium",
         semibold: "font-semibold",
@@ -34,7 +37,7 @@ const buttonVariants = cva(
     },
     defaultVariants: {
       variant: "default",
-      size: "lg",
+      size: "default",
       font: "default",
     },
   },

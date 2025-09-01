@@ -52,3 +52,9 @@ export const TABLE_COLUMN = [
     createdAt: "2025-06-01",
   },
 ];
+
+export const MENU_ITEMS = [
+  { label: "Gallery", action: () => {} },
+  { label: "Soundtrack", action: () => {} },
+  { label: "Coming Soon", action: () => {} },
+];

@@ -11,6 +11,11 @@
   --color-primary: var(--primary);
 
   --color-secondary: var(--secondary);
+
+  --font-sans: var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  --font-trajan: var(--font-trajan), serif;
+  --font-sole: var(--font-sole-sans), sans-serif;
 }
 
 @layer base {
@@ -35,7 +40,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-black text-neutral-300;
   }
 
   h1,

@@ -4,9 +4,11 @@ import React from "react";
 import CButton from "../../shared/custome/c-button";
 import { AnimatePresence, motion } from "motion/react";
 import { MENU_ITEMS } from "@/lib/constants";
+import { useRouter } from "next/navigation";
 
 export default function Menu({ Title }: any) {
   const [isOpen, setIsOpen] = React.useState(false);
+  const { push } = useRouter();
   return (
     <div className="z-20 w-full h-full flex justify-between flex-col items-center">
       <div className="w-fit z-20 pt-20">
@@ -27,7 +29,14 @@ export default function Menu({ Title }: any) {
             transition={{ duration: 0.5 }}
           >
             {MENU_ITEMS.map((item, index) => (
-              <CButton key={index} isSecondary onClick={item?.action} isHover>
+              <CButton
+                key={index}
+                isSecondary
+                onClick={() => {
+                  item?.action === "redirect" && push(item.link);
+                }}
+                isHover
+              >
                 <span className="">{item.label}</span>
               </CButton>
             ))}

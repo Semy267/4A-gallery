@@ -1,3 +1,5 @@
+import { useRouter } from "next/navigation";
+
 export const OPT_DUMMY = [
   { value: "1", label: "Option 1" },
   { value: "2", label: "Option 2" },
@@ -54,7 +56,11 @@ export const TABLE_COLUMN = [
 ];
 
 export const MENU_ITEMS = [
-  { label: "Gallery", action: () => {} },
-  { label: "Soundtrack", action: () => {} },
-  { label: "Coming Soon", action: () => {} },
+  // { label: "Login", action: () => {} },
+  {
+    label: "Dashboard",
+    action: "redirect",
+    link: "/dashboard",
+  },
+  { label: "Coming Soon", action: "redirect", link: "/" },
 ];

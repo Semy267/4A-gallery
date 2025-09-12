@@ -16,7 +16,7 @@ export default function TitleMenu() {
   const dialog = () => {
     setOpenOverlay({
       id: "CONFRIMATION",
-      title: "Confirmation",
+      title: "Disclaimer",
       isClose: false,
       disableOutsideInteraction: true,
       data: {

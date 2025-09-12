@@ -5,12 +5,12 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center z-20 gap-2 whitespace-nowrap text-sm ring-offset-white transition-colors focus-visible:outline-hidden focus-visible:ring-0 focus-visible:ring-offset-0 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4",
+  "inline-flex items-center relative justify-center z-20 gap-2 whitespace-nowrap text-sm ring-offset-white transition-colors focus-visible:outline-hidden focus-visible:ring-0 focus-visible:ring-offset-0 group disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4",
   {
     variants: {
       variant: {
         default:
-          "bg-neutral-900 relative !rounded-none text-neutral-300 shadow-[0_0_0_2px_rgba(103,104,106,255)] before:absolute before:pointer-events-none before:border-2 before:border-[#353536] before:w-full before:h-full border-2 border-[#131415]",
+          "bg-neutral-900 relative !rounded-none text-neutral-300 shadow-[0_0_0_2px_rgba(103,104,106,255)] before:absolute before:pointer-events-none before:border-2 before:border-[#353536] hover:before:border-[#A4D4E4] before:w-full before:h-full border-2 border-[#131415]",
         destructive: "bg-red-500 text-neutral-50 hover:bg-red-500/90",
         outline: "border bg-transparent text-neutral-900",
         outline_primary: "border border-primary bg-transparent text-primary",

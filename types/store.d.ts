@@ -5,6 +5,8 @@ declare interface IRootStore {
   overlay: IOverlay | null;
   setOpenOverlay: (overlay: IOverlay) => void;
   closeOverlay: () => void;
+  description: string;
+  setDescription: (text: string) => void;
 }
 
 declare interface IOverlayCommon {

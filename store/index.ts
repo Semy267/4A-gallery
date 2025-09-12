@@ -12,6 +12,8 @@ const store = create<IRootStore>((set) => ({
   setOpenOverlay: (overlay: IOverlay) =>
     set({ overlay: { ...overlay, open: true } }),
   closeOverlay: () => set({ overlay: initialDialog }),
+  description: "",
+  setDescription: (text: string) => set({ description: text }),
 }));
 
 export default store;

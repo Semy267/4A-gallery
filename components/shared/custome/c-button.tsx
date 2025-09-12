@@ -81,8 +81,21 @@ export default function CButton({
           className={cn(className)}
         >
           {icon}
-          {title}
+          <span className="pt-1 z-20 pointer-events-none">{title}</span>
           {children}
+          <motion.span
+            className="absolute inset-0 bg-gradient-to-t from-[#A4D4E4] to-transparent to-[80%] blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0 }}
+            whileHover={{
+              opacity: [0.3, 1, 0.3],
+              transition: {
+                duration: 1,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+            }}
+          />
         </Button>
       )}
     </>
